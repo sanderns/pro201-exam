@@ -4,9 +4,9 @@ import {fetchJSON} from "./fetchJSON";
 function StudentList({ student: { name, study, subjects } }) {
     return (
         <>
-            <h2>Name:{name}</h2>
-            <h3>Study:{study}</h3>
-            <h4>Subjects:{subjects}</h4>
+            <h2>Name: {name}</h2>
+            <h3>Study: {study}</h3>
+            <h3>Subjects: {subjects}</h3>
 
         </>
     );
