@@ -1,5 +1,5 @@
-import {useLoading} from "./useLoading";
-import {fetchJSON} from "./fetchJSON";
+import {useLoading} from "../useLoading";
+import {fetchJSON} from "../fetchJSON";
 
 function StudentList({ student: { name, study, subjects } }) {
     return (
