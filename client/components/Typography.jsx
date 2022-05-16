@@ -17,7 +17,7 @@ export function Typography({ element, weight, children }) {
   }
 
   // Handles provided element
-  function getElement() {
+  function getElementStyle() {
     switch (element) {
       case "h1":
         return styles.h1;
@@ -36,7 +36,7 @@ export function Typography({ element, weight, children }) {
     }
   }
 
-  const fontElement = getElement();
+  const elementStyle = getElementStyle();
 
   // Handles no provided weight
   if (weight !== "light" && weight !== "regular" && weight !== "bold") {
@@ -45,7 +45,7 @@ export function Typography({ element, weight, children }) {
   }
 
   // Handles provided weight
-  function getWeight() {
+  function getWeightStyle() {
     switch (weight) {
       case "light":
         return styles.light;
@@ -56,7 +56,7 @@ export function Typography({ element, weight, children }) {
     }
   }
 
-  const fontWeight = getWeight();
+  const weightStyle = getWeightStyle();
 
   // Handles empty children
   if (children == null || children === "") {
@@ -67,12 +67,12 @@ export function Typography({ element, weight, children }) {
   // Returns desired type of typography
   switch (element) {
     case "h1":
-      return <h1 className={`${fontElement} ${fontWeight}`}>{children}</h1>;
+      return <h1 className={`${elementStyle} ${weightStyle}`}>{children}</h1>;
     case "h2":
-      return <h2 className={`${fontElement} ${fontWeight}`}>{children}</h2>;
+      return <h2 className={`${elementStyle} ${weightStyle}`}>{children}</h2>;
     case "h3":
-      return <h3 className={`${fontElement} ${fontWeight}`}>{children}</h3>;
+      return <h3 className={`${elementStyle} ${weightStyle}`}>{children}</h3>;
     default:
-      return <p className={`${fontElement} ${fontWeight}`}>{children}</p>;
+      return <p className={`${elementStyle} ${weightStyle}`}>{children}</p>;
   }
 }

@@ -22,14 +22,12 @@ function Frontpage() {
 
 function Application() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path={"/"} element={<Frontpage />} />
-          <Route path={"/students"} element={<ListStudents />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Frontpage />} />
+        <Route path={"/students"} element={<ListStudents />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
