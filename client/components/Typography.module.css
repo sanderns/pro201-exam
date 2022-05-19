@@ -1,0 +1,85 @@
+/* MOBILE CLASSES */
+
+.h1 {
+    font-size: 24px;
+}
+
+.h2 {
+    font-size: 18px
+}
+
+.h3 {
+    font-size: 16px
+}
+
+.p1 {
+    font-size: 14px
+}
+
+.p2 {
+    font-size: 12px
+}
+
+.b1 {
+    font-size: 16px
+}
+
+.b2 {
+    font-size: 14px
+}
+
+.light {
+    font-weight: lighter;
+}
+
+.regular {
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* DESKTOP CLASSES */
+
+@media (min-width: 768px) {
+    .h1 {
+        font-size: 36px;
+    }
+
+    .h2 {
+        font-size: 24px
+    }
+
+    .h3 {
+        font-size: 18px
+    }
+
+    .p1 {
+        font-size: 16px
+    }
+
+    .p2 {
+        font-size: 14px
+    }
+
+    .b1 {
+        font-size: 18px
+    }
+
+    .b2 {
+        font-size: 16px
+    }
+
+    .light {
+        font-weight: lighter;
+    }
+
+    .regular {
+        font-weight: normal;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+}
