@@ -18,6 +18,10 @@ export function FrontPage() {
                     <Link to={"/AllGroups"}>List all Groups</Link>
                 </li>
 
+                <li>
+                    <Link to={"/CreateUser"}>Create User</Link>
+                </li>
+
             </ul>
         </div>
     )

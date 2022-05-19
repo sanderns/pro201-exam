@@ -1,3 +1,3 @@
 export function AllStudents() {
-    return null;
+    return <h3>Test</h3>;
 }

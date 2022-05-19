@@ -5,6 +5,8 @@ import {FrontPage} from "./pages/frontPage";
 import {MatchingStudents} from "./pages/matchingStudents";
 import {AllStudents} from "./pages/allStudents";
 import {AllGroups} from "./pages/allGroups";
+import {Chat} from "./pages/chat";
+import {CreateUser} from "./pages/createUser";
 
 
 function Application() {
@@ -24,10 +26,11 @@ function Application() {
                 <Route path={"/AllMatchingStudents"} element={<MatchingStudents/>}/>
                 <Route path={"/AllStudents"} element={<AllStudents/>}/>
                 <Route path={"/AllGroups"} element={<AllGroups/>}/>
+                <Route path={"/Chat"} element={<Chat/>}/>
+                <Route path={"/CreateUser"} element={<CreateUser/>}/>
                 <Route path={"/students"} element={<ListStudents />}/>
             </Routes>
             </main>
-            s
         </BrowserRouter>
     )
 }
