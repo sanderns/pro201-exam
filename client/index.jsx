@@ -1,34 +1,35 @@
 import * as ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ListStudents } from "./listStudents";
-import { Typography } from "./components/Typography";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {ListStudents} from "./pages/listStudents";
+import {FrontPage} from "./pages/frontPage";
+import {MatchingStudents} from "./pages/matchingStudents";
+import {AllStudents} from "./pages/allStudents";
+import {AllGroups} from "./pages/allGroups";
 
-function Frontpage() {
-  const elements = ["h1", "h2", "h3", "p1", "p2", "b1", "b2"];
-  const weights = ["light", "regular", "bold"];
-
-  return (
-    <>
-      {elements.map((element) =>
-        weights.map((weight) => (
-          <Typography element={element} weight={weight}>
-            This is a {weight} {element}
-          </Typography>
-        ))
-      )}
-    </>
-  );
-}
 
 function Application() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Frontpage />} />
-        <Route path={"/students"} element={<ListStudents />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <header>
+                <Link to={"/"}>Front page</Link>
+                <Link to={"/AllMatchingStudents"}>List articles</Link>
+                <Link to={"/AllStudents"}>Add new article</Link>
+                <Link to={"/AllGroups"}>Login</Link>
+                <div className="menu-divider"/>
+            </header>
+
+            <main>
+            <Routes>
+                <Route path={"/"} element={<FrontPage/>}/>
+                <Route path={"/AllMatchingStudents"} element={<MatchingStudents/>}/>
+                <Route path={"/AllStudents"} element={<AllStudents/>}/>
+                <Route path={"/AllGroups"} element={<AllGroups/>}/>
+                <Route path={"/students"} element={<ListStudents />}/>
+            </Routes>
+            </main>
+            s
+        </BrowserRouter>
+    )
 }
 
-ReactDOM.render(<Application />, document.getElementById("app"));
+ReactDOM.render(<Application/>, document.getElementById("app"));
