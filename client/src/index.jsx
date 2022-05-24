@@ -5,31 +5,41 @@ import { FrontPage } from "./pages/frontPage";
 import { MatchingStudents } from "./pages/matchingStudents";
 import { AllStudents } from "./pages/allStudents";
 import { AllGroups } from "./pages/allGroups";
+import { useMediaQuery } from "react-responsive";
+import DeviceContext from "./contexts/device-context";
 
 function Application() {
+  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+
   return (
     <div className="font-regular">
-      <BrowserRouter>
-        <header>
-          <Link to={"/"}>Front page</Link>
-          <Link to={"/AllMatchingStudents"}>List articles</Link>
-          <Link to={"/AllStudents"}>Add new article</Link>
-          <Link to={"/AllGroups"}>Login</Link>
-          <div className="menu-divider" />
-        </header>
-        <main>
-          <Routes>
-            <Route path={"/"} element={<FrontPage />} />
-            <Route
-              path={"/AllMatchingStudents"}
-              element={<MatchingStudents />}
-            />
-            <Route path={"/AllStudents"} element={<AllStudents />} />
-            <Route path={"/AllGroups"} element={<AllGroups />} />
-            <Route path={"/students"} element={<ListStudents />} />
-          </Routes>
-        </main>
-      </BrowserRouter>
+      <DeviceContext.Provider
+        value={{
+          isMobile: isMobile,
+        }}
+      >
+        <BrowserRouter>
+          <header>
+            <Link to={"/"}>Front page</Link>
+            <Link to={"/AllMatchingStudents"}>List articles</Link>
+            <Link to={"/AllStudents"}>Add new article</Link>
+            <Link to={"/AllGroups"}>Login</Link>
+            <div className="menu-divider" />
+          </header>
+          <main>
+            <Routes>
+              <Route path={"/"} element={<FrontPage />} />
+              <Route
+                path={"/AllMatchingStudents"}
+                element={<MatchingStudents />}
+              />
+              <Route path={"/AllStudents"} element={<AllStudents />} />
+              <Route path={"/AllGroups"} element={<AllGroups />} />
+              <Route path={"/students"} element={<ListStudents />} />
+            </Routes>
+          </main>
+        </BrowserRouter>
+      </DeviceContext.Provider>
     </div>
   );
 }
