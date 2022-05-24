@@ -14,9 +14,9 @@ function Application() {
         <BrowserRouter>
             <header>
                 <Link to={"/"}>Front page</Link>
-                <Link to={"/AllMatchingStudents"}>List articles</Link>
-                <Link to={"/AllStudents"}>Add new article</Link>
-                <Link to={"/AllGroups"}>Login</Link>
+                <Link to={"/AllMatchingStudents"}>List all matching students</Link>
+                <Link to={"/AllStudents"}>All students</Link>
+                <Link to={"/AllGroups"}>All groups</Link>
                 <div className="menu-divider"/>
             </header>
 

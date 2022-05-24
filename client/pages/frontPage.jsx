@@ -22,6 +22,10 @@ export function FrontPage() {
                     <Link to={"/CreateUser"}>Create User</Link>
                 </li>
 
+                <li>
+                    <Link to={"/Chat"}>Chat</Link>
+                </li>
+
             </ul>
         </div>
     )

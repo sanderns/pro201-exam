@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-export function TestApi(mongoDatabase) {
+export function StudentsApi(mongoDatabase) {
     const router = new Router();
 
     router.get("/", async (req, res) => {
