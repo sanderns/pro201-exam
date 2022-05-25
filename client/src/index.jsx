@@ -19,13 +19,6 @@ function Application() {
         }}
       >
         <BrowserRouter>
-          <header>
-            <Link to={"/"}>Front page</Link>
-            <Link to={"/AllMatchingStudents"}>List articles</Link>
-            <Link to={"/AllStudents"}>Add new article</Link>
-            <Link to={"/AllGroups"}>Login</Link>
-            <div className="menu-divider" />
-          </header>
           <main>
             <Routes>
               <Route path={"/"} element={<FrontPage />} />

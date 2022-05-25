@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
-import DeviceContext from "../contexts/device-context";
+import React from "react";
 
 export function Typography({ element, weight, children }) {
-  const { isMobile } = useContext(DeviceContext);
-
   // Handles no provided element
   if (
     element !== "h1" &&
@@ -22,19 +19,19 @@ export function Typography({ element, weight, children }) {
   function getElementStyle() {
     switch (element) {
       case "h1":
-        return isMobile ? "font-xl" : "font-2xl";
+        return "text-xl lg:text-2xl";
       case "h2":
-        return isMobile ? "font-lg" : "font-xl";
+        return "text-lg lg:text-xl";
       case "h3":
-        return isMobile ? "font-md" : "font-lg";
+        return "text-md lg:text-lg";
       case "p1":
-        return isMobile ? "font-sm" : "font-md";
+        return "text-sm lg:text-md";
       case "p2":
-        return isMobile ? "font-xs" : "font-sm";
+        return "text-xs lg:text-sm";
       case "b1":
-        return isMobile ? "font-sm" : "font-lg";
+        return "text-sm lg:text-lg";
       case "b2":
-        return isMobile ? "font-sm" : "font-md";
+        return "text-sm lg:text-md";
     }
   }
 
@@ -76,7 +73,11 @@ export function Typography({ element, weight, children }) {
   // Returns desired type of typography
   switch (element) {
     case "h1":
-      return <h1 className={`${elementStyle} ${weightStyle}`}>{children}</h1>;
+      return (
+        <h1 className={`${elementStyle} ${weightStyle} text-purple-100`}>
+          {children}
+        </h1>
+      );
     case "h2":
       return <h2 className={`${elementStyle} ${weightStyle}`}>{children}</h2>;
     case "h3":

@@ -512,6 +512,50 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: "Be Vietnam";
 }
 
+.font-medium {
+  font-family: "Be Vietnam Medium";
+}
+
+.font-semibold {
+  font-family: "Be Vietnam SemiBold";
+}
+
+.font-bold {
+  font-family: "Be Vietnam Bold";
+}
+
+.text-xl {
+  font-size: 24px;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-md {
+  font-size: 16px;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 @font-face {
   font-family: 'Be Vietnam';
 
@@ -558,4 +602,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 800;
 
   font-style: normal;
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-2xl {
+    font-size: 36px;
+  }
+
+  .lg\:text-xl {
+    font-size: 24px;
+  }
+
+  .lg\:text-lg {
+    font-size: 18px;
+  }
+
+  .lg\:text-md {
+    font-size: 16px;
+  }
+
+  .lg\:text-sm {
+    font-size: 14px;
+  }
 }
