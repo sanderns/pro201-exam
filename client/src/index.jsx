@@ -1,12 +1,10 @@
 import * as ReactDOM from "react-dom";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { ListStudents } from "./pages/listStudents";
-import { FrontPage } from "./pages/frontPage";
-import { MatchingStudents } from "./pages/matchingStudents";
-import { AllStudents } from "./pages/allStudents";
-import { AllGroups } from "./pages/allGroups";
 import { useMediaQuery } from "react-responsive";
 import DeviceContext from "./contexts/device-context";
+import { Typography } from "./components/Typography";
+import { Button } from "./components/Button";
+import { NavCard } from "./components/NavCard";
+import { StudentCard } from "./components/StudentCard";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -18,20 +16,21 @@ function Application() {
           isMobile: isMobile,
         }}
       >
-        <BrowserRouter>
-          <main>
-            <Routes>
-              <Route path={"/"} element={<FrontPage />} />
-              <Route
-                path={"/AllMatchingStudents"}
-                element={<MatchingStudents />}
-              />
-              <Route path={"/AllStudents"} element={<AllStudents />} />
-              <Route path={"/AllGroups"} element={<AllGroups />} />
-              <Route path={"/students"} element={<ListStudents />} />
-            </Routes>
-          </main>
-        </BrowserRouter>
+        <StudentCard />
+        {/*<BrowserRouter>*/}
+        {/*  <main>*/}
+        {/*    <Routes>*/}
+        {/*      <Route path={"/"} element={<FrontPage />} />*/}
+        {/*      <Route*/}
+        {/*        path={"/AllMatchingStudents"}*/}
+        {/*        element={<MatchingStudents />}*/}
+        {/*      />*/}
+        {/*      <Route path={"/AllStudents"} element={<AllStudents />} />*/}
+        {/*      <Route path={"/AllGroups"} element={<AllGroups />} />*/}
+        {/*      <Route path={"/students"} element={<ListStudents />} />*/}
+        {/*    </Routes>*/}
+        {/*  </main>*/}
+        {/*</BrowserRouter>*/}
       </DeviceContext.Provider>
     </div>
   );

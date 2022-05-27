@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Button.module.css";
 import { Typography } from "./Typography";
 
 export function Button({ type, children, onClickFn }) {
@@ -13,11 +12,9 @@ export function Button({ type, children, onClickFn }) {
   function getBgColor() {
     switch (type) {
       case "gradient":
-        return styles["bg-gradient"];
+        return "bg-gradient-to-r from-gradient-left to-gradient-right hover:shadow-md hover:shadow-purple-200/50 active:to-purple-100/70";
       case "flat":
-        return styles["bg-flat"];
-      case "dark":
-        return styles["bg-dark"];
+        return "bg-purple-100 hover:shadow-md hover:shadow-purple-200/50 active:bg-purple-100/70";
     }
   }
 
@@ -43,7 +40,10 @@ export function Button({ type, children, onClickFn }) {
 
   // Returns button
   return (
-    <button onClick={handleClick} className={`${styles.container} ${bgColor}`}>
+    <button
+      onClick={handleClick}
+      className={`px-4 p-2 text-md font-bold text-center rounded-standard text-white ${bgColor}`}
+    >
       <Typography element={"b2"} weight={"bold"}>
         {children}
       </Typography>
