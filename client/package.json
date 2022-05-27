@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel public/index.html",
+    "dev": "parcel watch public/index.html",
     "test": "jest",
     "build": "npm install --include=dev && npm run build:parcel",
     "build:parcel": "parcel build index.html",
@@ -28,6 +28,7 @@
     "jest": "^28.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-responsive": "^9.0.0-beta.8",
     "react-router-dom": "^6.3.0"
   },
   "babel": {

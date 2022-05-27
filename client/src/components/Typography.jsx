@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Typography.module.css";
 
 export function Typography({ element, weight, children }) {
   // Handles no provided element
@@ -20,26 +19,31 @@ export function Typography({ element, weight, children }) {
   function getElementStyle() {
     switch (element) {
       case "h1":
-        return styles.h1;
+        return "text-xl lg:text-2xl";
       case "h2":
-        return styles.h2;
+        return "text-lg lg:text-xl";
       case "h3":
-        return styles.h3;
+        return "text-md lg:text-lg";
       case "p1":
-        return styles.p1;
+        return "text-sm lg:text-md";
       case "p2":
-        return styles.p2;
+        return "text-xs lg:text-sm";
       case "b1":
-        return styles.b1;
+        return "text-sm lg:text-lg";
       case "b2":
-        return styles.b2;
+        return "text-sm lg:text-md";
     }
   }
 
   const elementStyle = getElementStyle();
 
   // Handles no provided weight
-  if (weight !== "light" && weight !== "regular" && weight !== "bold") {
+  if (
+    weight !== "regular" &&
+    weight !== "medium" &&
+    weight !== "semibold" &&
+    weight !== "bold"
+  ) {
     console.log('Weight not defined! Value set to "regular".');
     weight = "regular";
   }
@@ -47,12 +51,14 @@ export function Typography({ element, weight, children }) {
   // Handles provided weight
   function getWeightStyle() {
     switch (weight) {
-      case "light":
-        return styles.light;
       case "regular":
-        return styles.regular;
+        return "font-regular";
+      case "medium":
+        return "font-medium";
+      case "semibold":
+        return "font-semibold";
       case "bold":
-        return styles.bold;
+        return "font-bold";
     }
   }
 
@@ -67,7 +73,11 @@ export function Typography({ element, weight, children }) {
   // Returns desired type of typography
   switch (element) {
     case "h1":
-      return <h1 className={`${elementStyle} ${weightStyle}`}>{children}</h1>;
+      return (
+        <h1 className={`${elementStyle} ${weightStyle} text-purple-100`}>
+          {children}
+        </h1>
+      );
     case "h2":
       return <h2 className={`${elementStyle} ${weightStyle}`}>{children}</h2>;
     case "h3":
