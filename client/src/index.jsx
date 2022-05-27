@@ -6,9 +6,9 @@ import { FrontPage } from "../pages/frontPage";
 import { MatchingStudents } from "./pages/matchingStudents";
 import { AllStudents } from "./pages/allStudents";
 import { AllGroups } from "./pages/allGroups";
-import { Chat } from "../pages/chat";
-import { CreateUser } from "../pages/createUser";
-import { CreateGroup } from "../pages/createGroups";
+import { Chat } from "./pages/chat";
+import { CreateUser } from "./pages/createUser";
+import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
 
 function Application() {
