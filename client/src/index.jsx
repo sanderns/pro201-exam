@@ -2,7 +2,6 @@ import * as ReactDOM from "react-dom";
 import { useMediaQuery } from "react-responsive";
 import DeviceContext from "./contexts/device-context";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { FrontPage } from "../pages/frontPage";
 import { MatchingStudents } from "./pages/matchingStudents";
 import { AllStudents } from "./pages/allStudents";
 import { AllGroups } from "./pages/allGroups";
@@ -10,6 +9,7 @@ import { Chat } from "./pages/chat";
 import { CreateUser } from "./pages/createUser";
 import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
+import { FrontPage } from "./pages/frontPage";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
