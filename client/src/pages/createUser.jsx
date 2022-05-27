@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
-import { createContext } from "../src/createContext";
-import { FormInput } from "../src/formInput";
-import { FormTextarea } from "../src/formTextArea";
+import { createContext } from "../createContext";
+import { FormInput } from "../formInput";
+import { FormTextarea } from "../formTextArea";
 
 export function CreateUser() {
   const { userContext } = useContext(createContext);
