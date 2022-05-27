@@ -1,28 +1,35 @@
+import { Link } from "react-router-dom";
 import React from "react";
-import { Typography } from "../components/Typography";
 
 export function FrontPage() {
-  const elements = ["h1", "h2", "h3", "p1", "p2", "b1", "b2"];
-  const weights = ["regular", "medium", "semibold", "bold"];
-
-  const e = elements[0];
-  const w = weights[0];
-
   return (
     <div>
-      <Typography element={"h1"} weight={"bold"}>
-        Welcome
-      </Typography>
-      <Typography element={e} weight={w}>
-        This is a {e} {w}!
-      </Typography>
-      {elements.map((element) => {
-        weights.map((weight) => (
-          <Typography element={element} weight={weight}>
-            This is a {weight} {element}!
-          </Typography>
-        ));
-      })}
+      <h1>Please choose the option that suits your needs</h1>
+      <ul>
+        <li>
+          <Link to={"/AllMatchingStudents"}>List all matching students </Link>
+        </li>
+
+        <li>
+          <Link to={"/AllStudents"}>List all students</Link>
+        </li>
+
+        <li>
+          <Link to={"/AllGroups"}>List all Groups</Link>
+        </li>
+
+        <li>
+          <Link to={"/CreateUser"}>Create User</Link>
+        </li>
+
+        <li>
+          <Link to={"/CreateGroup"}>Create Group</Link>
+        </li>
+
+        <li>
+          <Link to={"/Chat"}>Chat</Link>
+        </li>
+      </ul>
     </div>
   );
 }
