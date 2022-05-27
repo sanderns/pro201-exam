@@ -23,6 +23,10 @@ export function FrontPage() {
                 </li>
 
                 <li>
+                    <Link to={"/CreateGroup"}>Create Group</Link>
+                </li>
+
+                <li>
                     <Link to={"/Chat"}>Chat</Link>
                 </li>
 

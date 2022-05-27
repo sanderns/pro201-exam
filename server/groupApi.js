@@ -9,5 +9,11 @@ export function GroupApi(mongoDatabase){
         res.json(groups);
     });
 
+    router.post("/", (req, res) => {
+        const {name,aboutUs, gradeGoal, study, subject, studyTime } = req.body;
+        mongoDatabase.collection("Groups").insertOne({name, aboutUs, gradeGoal, study, subject, studyTime});
+        res.sendStatus(200);
+    })
+
     return router;
 }

@@ -7,6 +7,7 @@ import {AllStudents} from "./pages/allStudents";
 import {AllGroups} from "./pages/allGroups";
 import {Chat} from "./pages/chat";
 import {CreateUser} from "./pages/createUser";
+import {CreateGroup} from "./pages/createGroups";
 
 
 function Application() {
@@ -28,6 +29,7 @@ function Application() {
                 <Route path={"/AllGroups"} element={<AllGroups/>}/>
                 <Route path={"/Chat"} element={<Chat/>}/>
                 <Route path={"/CreateUser"} element={<CreateUser/>}/>
+                <Route path={"CreateGroup"} element={<CreateGroup/>}/>
                 <Route path={"/students"} element={<ListStudents />}/>
             </Routes>
             </main>
