@@ -1,19 +1,31 @@
 import express from "express";
 import {MongoClient} from "mongodb";
-import {TestApi} from "./TestApi.js";
+import {StudentsApi} from "./studentsApi.js";
 import path from "path";
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
+import bodyParser from "body-parser";
+import {GroupApi} from "./groupApi.js";
 
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.json());
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 mongoClient.connect().then(async () => {
     console.log("Connected to mongodb");
     app.use(
         "/api/students",
-        TestApi(mongoClient.db(process.env.MONGODB_DATABASE || "SmidigProsjekt"))
+        StudentsApi(mongoClient.db(process.env.MONGODB_DATABASE || "SmidigProsjekt"))
+    );
+});
+
+const mongoClientGroup = new MongoClient(process.env.MONGODB_URL);
+mongoClientGroup.connect().then(async () => {
+    console.log("Connected to mongodb");
+    app.use(
+        "/api/groups",
+        GroupApi(mongoClientGroup.db(process.env.MONGODB_DATABASE || "SmidigProsjekt"))
     );
 });
 
