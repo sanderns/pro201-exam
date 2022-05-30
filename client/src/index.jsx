@@ -10,6 +10,7 @@ import { CreateUser } from "./pages/createUser";
 import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
 import { FrontPage } from "./pages/frontPage";
+import { Dashboard } from "./pages/Dashboard";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -22,16 +23,16 @@ function Application() {
         }}
       >
         <BrowserRouter>
-          <header>
-            <Link to={"/"}>Front page</Link>
-            <Link to={"/AllMatchingStudents"}>List all matching students</Link>
-            <Link to={"/AllStudents"}>All students</Link>
-            <Link to={"/AllGroups"}>All groups</Link>
-            <div className="menu-divider" />
-          </header>
+          {/*<header>*/}
+          {/*  <Link to={"/"}>Front page</Link>*/}
+          {/*  <Link to={"/AllMatchingStudents"}>List all matching students</Link>*/}
+          {/*  <Link to={"/AllStudents"}>All students</Link>*/}
+          {/*  <Link to={"/AllGroups"}>All groups</Link>*/}
+          {/*  <div className="menu-divider" />*/}
+          {/*</header>*/}
           <main>
             <Routes>
-              <Route path={"/"} element={<FrontPage />} />
+              <Route path={"/"} element={<Dashboard />} />
               <Route
                 path={"/AllMatchingStudents"}
                 element={<MatchingStudents />}

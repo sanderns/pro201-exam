@@ -517,12 +517,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   list-style-type: disc;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .justify-around {
@@ -591,6 +599,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-center {
