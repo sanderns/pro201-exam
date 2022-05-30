@@ -1,24 +1,25 @@
 import React from "react";
 import { Typography } from "../components/Typography";
 import { NavCard } from "../components/NavCard";
-import { TopBar } from "../components/UI/TopBar";
+import { TopBar } from "../components/TopBar";
+import { Navbar } from "../components/Navbar";
+
+const navigation = [
+  {
+    href: "/AllMatchingStudents",
+    child: "List all matching students",
+  },
+  {
+    href: "/AllStudents",
+    child: "List all students",
+  },
+  {
+    href: "/AllGroups",
+    child: "List all groups",
+  },
+];
 
 export function Dashboard() {
-  const navigation = [
-    {
-      href: "/AllMatchingStudents",
-      child: "List all matching students",
-    },
-    {
-      href: "/AllStudents",
-      child: "List all students",
-    },
-    {
-      href: "/AllGroups",
-      child: "List all groups",
-    },
-  ];
-
   return (
     <>
       <TopBar />
@@ -32,7 +33,7 @@ export function Dashboard() {
           </NavCard>
         ))}
       </div>
-      <div>NAVBAR</div>
+      <Navbar />
     </>
   );
 }

@@ -513,6 +513,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 6rem;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .list-disc {
   list-style-type: disc;
 }
@@ -537,12 +541,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-2\.5 {
   gap: 0.625rem;
 }
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .rounded-standard {

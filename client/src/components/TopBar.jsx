@@ -1,10 +1,10 @@
 import React from "react";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export function TopBar() {
   function handleClick() {
-    console.log("TODO: Fix this button");
+    console.log(""); // TODO: Fix this button
   }
 
   return (
@@ -12,7 +12,7 @@ export function TopBar() {
       className={`flex justify-between items-center p-5 pt-10 bg-gradient-to-r from-gradient-left to-gradient-right text-white`}
     >
       <a href="/">
-        <ArrowBackIosIcon />
+        <ArrowBackIosNewIcon />
       </a>
       <div>LOGO</div>
       <button onClick={handleClick}>
