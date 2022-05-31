@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
-import { createContext } from "../createContext";
-import { FormInput } from "../formInput";
-import { FormTextarea } from "../formTextArea";
+import { apiContext } from "../contexts/api-context";
+import { FormInput } from "../components/formInput";
+import { FormTextarea } from "../components/formTextArea";
 
 export function CreateGroup() {
-  const { groupContext } = useContext(createContext);
+  const { groupContext } = useContext(apiContext);
   const [name, setName] = useState("");
   const [aboutUs, setAboutUs] = useState("");
   const [gradeGoal, setGradeGoal] = useState("");

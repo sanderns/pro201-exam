@@ -1,7 +1,7 @@
 import React from "react";
-import { postJSON } from "./postJSON";
+import { postJSON } from "../api/postJSON";
 
-export const createContext = React.createContext({
+export const apiContext = React.createContext({
   async userContext(createUser) {
     return await postJSON("/api/students", createUser);
   },

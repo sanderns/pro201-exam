@@ -1,16 +1,11 @@
-import * as ReactDOM from "react-dom";
-import { useMediaQuery } from "react-responsive";
+import React from "react";
+import ReactDOM from "react-dom";
 import DeviceContext from "./contexts/device-context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MatchingStudents } from "./pages/matchingStudents";
-import { AllStudents } from "./pages/allStudents";
-import { AllGroups } from "./pages/allGroups";
-import { Chat } from "./pages/chat";
-import { CreateUser } from "./pages/createUser";
-import { CreateGroup } from "./pages/createGroups";
-import { ListStudents } from "./listStudents";
-import { Dashboard } from "./pages/Dashboard";
-import { FrontPage } from "./pages/frontPage";
+import { useMediaQuery } from "react-responsive";
+import { TopBar } from "./components/TopBar";
+import { Navbar } from "./components/Navbar";
+import { navList } from "./navigation-config";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -23,31 +18,33 @@ function Application() {
         }}
       >
         <BrowserRouter>
-          {/*<header>*/}
-          {/*  <Link to={"/"}>Front page</Link>*/}
-          {/*  <Link to={"/AllMatchingStudents"}>List all matching students</Link>*/}
-          {/*  <Link to={"/AllStudents"}>All students</Link>*/}
-          {/*  <Link to={"/AllGroups"}>All groups</Link>*/}
-          {/*  <div className="menu-divider" />*/}
-          {/*</header>*/}
-          <main>
+          {isMobile && (
+            <div className="fixed left-0 right-0 top-0 z-10">
+              <TopBar />
+            </div>
+          )}
+          <div className="z-0">
             <Routes>
-              <Route
-                path={"/"}
-                element={isMobile ? <Dashboard /> : <FrontPage />}
-              />
-              <Route
-                path={"/AllMatchingStudents"}
-                element={<MatchingStudents />}
-              />
-              <Route path={"/AllStudents"} element={<AllStudents />} />
-              <Route path={"/AllGroups"} element={<AllGroups />} />
-              <Route path={"/Chat"} element={<Chat />} />
-              <Route path={"/CreateUser"} element={<CreateUser />} />
-              <Route path={"CreateGroup"} element={<CreateGroup />} />
-              <Route path={"/students"} element={<ListStudents />} />
+              {navList.map(({ path, element, mobileElement }, index) => (
+                <Route
+                  key={index}
+                  path={path}
+                  element={
+                    !mobileElement
+                      ? element
+                      : isMobile
+                      ? mobileElement
+                      : element
+                  }
+                />
+              ))}
             </Routes>
-          </main>
+          </div>
+          {isMobile && (
+            <div className="fixed left-0 right-0 bottom-0 z-10">
+              <Navbar />
+            </div>
+          )}
         </BrowserRouter>
       </DeviceContext.Provider>
     </div>

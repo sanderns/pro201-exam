@@ -1,5 +1,5 @@
 import { useLoading } from "../hooks/useLoading";
-import { fetchJSON } from "../fetchJSON";
+import { fetchJSON } from "../api/fetchJSON";
 
 function StudentList({ student: { name, study, subjects } }) {
   return (
