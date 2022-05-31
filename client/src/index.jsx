@@ -1,7 +1,7 @@
 import * as ReactDOM from "react-dom";
 import { useMediaQuery } from "react-responsive";
 import DeviceContext from "./contexts/device-context";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MatchingStudents } from "./pages/matchingStudents";
 import { AllStudents } from "./pages/allStudents";
 import { AllGroups } from "./pages/allGroups";
@@ -9,14 +9,13 @@ import { Chat } from "./pages/chat";
 import { CreateUser } from "./pages/createUser";
 import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
-import { FrontPage } from "./pages/frontPage";
 import { Dashboard } from "./pages/Dashboard";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
-    <div className="font-regular">
+    <div className="font-regular bg-purple-500">
       <DeviceContext.Provider
         value={{
           isMobile: isMobile,

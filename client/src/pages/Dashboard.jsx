@@ -21,9 +21,9 @@ const navigation = [
 
 export function Dashboard() {
   return (
-    <>
+    <div className="h-screen">
       <TopBar />
-      <div className="p-5 flex flex-col justify-between">
+      <div className="p-5 flex flex-col h-full border-2 border-red-100 border-solid">
         <Typography element={"h2"} weight={"bold"}>
           Please choose the option that suits your needs.
         </Typography>
@@ -34,6 +34,6 @@ export function Dashboard() {
         ))}
       </div>
       <Navbar />
-    </>
+    </div>
   );
 }
