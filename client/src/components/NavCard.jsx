@@ -7,7 +7,9 @@ export function NavCard({ href, element, children }) {
       href={href}
       className={`rounded p-10 m-2 bg-white drop-shadow rounded flex justify-center items-center`}
     >
-      <Typography element={element}>{children}</Typography>
+      <Typography element={element} weight={"regular"}>
+        {children}
+      </Typography>
     </a>
   );
 }

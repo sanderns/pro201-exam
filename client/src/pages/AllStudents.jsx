@@ -1,4 +1,4 @@
-import { fetchJSON } from "../fetchJSON";
+import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
 import { TopBar } from "../components/TopBar";

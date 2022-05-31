@@ -14,7 +14,6 @@ export function TopBar() {
   }, []);
 
   function handleBackClick(event) {
-    event.preventDefault();
     navigate(-1);
   }
 
@@ -27,8 +26,8 @@ export function TopBar() {
       className={`flex justify-between items-center p-5 pt-10 bg-gradient-to-r from-gradient-left to-gradient-right text-white`}
     >
       <button
-        onClick={(event) => handleBackClick(event)}
-        className={!canBack && "invisible"}
+        onClick={handleBackClick}
+        className={!canBack ? "invisible" : undefined}
       >
         <ArrowBackIosNewIcon />
       </button>

@@ -1,4 +1,4 @@
-import { fetchJSON } from "../fetchJSON";
+import { fetchJSON } from "../api/fetchJSON";
 import { useLoading } from "../hooks/useLoading";
 
 function GroupList({
