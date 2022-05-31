@@ -11,6 +11,9 @@ import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
 import { Dashboard } from "./pages/Dashboard";
 import { FrontPage } from "./pages/frontPage";
+import { TopBar } from "./components/TopBar";
+import { Navbar } from "./components/Navbar";
+import React from "react";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -23,14 +26,12 @@ function Application() {
         }}
       >
         <BrowserRouter>
-          {/*<header>*/}
-          {/*  <Link to={"/"}>Front page</Link>*/}
-          {/*  <Link to={"/AllMatchingStudents"}>List all matching students</Link>*/}
-          {/*  <Link to={"/AllStudents"}>All students</Link>*/}
-          {/*  <Link to={"/AllGroups"}>All groups</Link>*/}
-          {/*  <div className="menu-divider" />*/}
-          {/*</header>*/}
-          <main>
+          {isMobile && (
+            <div className="fixed left-0 right-0 top-0">
+              <TopBar />
+            </div>
+          )}
+          <div className="relative">
             <Routes>
               <Route
                 path={"/"}
@@ -47,7 +48,12 @@ function Application() {
               <Route path={"CreateGroup"} element={<CreateGroup />} />
               <Route path={"/students"} element={<ListStudents />} />
             </Routes>
-          </main>
+            {isMobile && (
+              <div className="fixed left-0 right-0 bottom-0">
+                <Navbar />
+              </div>
+            )}
+          </div>
         </BrowserRouter>
       </DeviceContext.Provider>
     </div>

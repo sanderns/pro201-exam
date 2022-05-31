@@ -468,6 +468,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -480,14 +484,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
-.top-5 {
-  top: 1.25rem;
-}
-
-.right-5 {
-  right: 1.25rem;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -496,8 +492,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .bottom-0 {
   bottom: 0px;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
 }
 
 .m-5 {
@@ -647,12 +655,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.pt-10 {
-  padding-top: 2.5rem;
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
-.pt-14 {
-  padding-top: 3.5rem;
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-center {

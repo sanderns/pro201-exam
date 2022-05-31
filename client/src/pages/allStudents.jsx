@@ -1,6 +1,7 @@
 import { fetchJSON } from "../fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
+import { TopBar } from "../components/TopBar";
 
 function StudentList({ student }) {
   const { name, study, subject, gradeGoal, studyTime, aboutMe } = student;
@@ -41,6 +42,7 @@ export function AllStudents() {
 
   return (
     <div>
+      <TopBar />
       <h1>List of students</h1>
       {data.map((student) => (
         <StudentList key={student.name} student={student} />
