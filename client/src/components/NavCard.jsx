@@ -1,12 +1,13 @@
 import React from "react";
 import { Typography } from "./Typography";
 
-export function NavCard({ element, children }) {
+export function NavCard({ href, element, children }) {
   return (
-    <div
+    <a
+      href={href}
       className={`rounded p-10 m-2 bg-white drop-shadow rounded flex justify-center items-center`}
     >
       <Typography element={element}>{children}</Typography>
-    </div>
+    </a>
   );
 }
