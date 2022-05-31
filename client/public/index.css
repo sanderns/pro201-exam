@@ -529,6 +529,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100vh;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-24 {
   width: 6rem;
 }
@@ -643,17 +647,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .pt-10 {
   padding-top: 2.5rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
+.pt-14 {
+  padding-top: 3.5rem;
 }
 
 .text-center {

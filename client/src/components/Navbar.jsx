@@ -31,7 +31,7 @@ export function Navbar() {
   }
 
   return (
-    <div className="flex justify-evenly fixed left-0 right-0 bottom-0 bg-purple-500">
+    <div className="flex justify-evenly bg-purple-500">
       {navigation.map((item, index) => (
         <a
           key={index}
