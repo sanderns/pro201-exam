@@ -1,17 +1,21 @@
 import { fetchJSON } from "../api/fetchJSON";
 import { useLoading } from "../hooks/useLoading";
+import {GroupCard} from "../components/GroupCard";
 
-function GroupList({
-  group: { name, study, subject, gradeGoal, studyTime, aboutUs },
-}) {
+function GroupList({group}) {
+const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
+
   return (
     <>
-      <h2>Name: {name}</h2>
+      <div>
+        <GroupCard group={group} />
+      </div>
+      {/*<h2>Name: {name}</h2>
       <h3>About us: {aboutUs}</h3>
       <h3>Grade goal: {gradeGoal}</h3>
       <h3>Study: {study}</h3>
       <h3>Subjects: {subject}</h3>
-      <h3>Study time: {studyTime}</h3>
+      <h3>Study time: {studyTime}</h3>*/}
     </>
   );
 }
