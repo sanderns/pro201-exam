@@ -10,6 +10,7 @@ import { CreateUser } from "./pages/createUser";
 import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
 import { Dashboard } from "./pages/Dashboard";
+import { FrontPage } from "./pages/frontPage";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -31,7 +32,10 @@ function Application() {
           {/*</header>*/}
           <main>
             <Routes>
-              <Route path={"/"} element={<Dashboard />} />
+              <Route
+                path={"/"}
+                element={isMobile ? <Dashboard /> : <FrontPage />}
+              />
               <Route
                 path={"/AllMatchingStudents"}
                 element={<MatchingStudents />}
