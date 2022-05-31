@@ -1,7 +1,7 @@
 import * as ReactDOM from "react-dom";
 import { useMediaQuery } from "react-responsive";
 import DeviceContext from "./contexts/device-context";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MatchingStudents } from "./pages/matchingStudents";
 import { AllStudents } from "./pages/allStudents";
 import { AllGroups } from "./pages/allGroups";
@@ -9,29 +9,33 @@ import { Chat } from "./pages/chat";
 import { CreateUser } from "./pages/createUser";
 import { CreateGroup } from "./pages/createGroups";
 import { ListStudents } from "./listStudents";
+import { Dashboard } from "./pages/Dashboard";
 import { FrontPage } from "./pages/frontPage";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
-    <div className="font-regular">
+    <div className="font-regular bg-purple-500">
       <DeviceContext.Provider
         value={{
           isMobile: isMobile,
         }}
       >
         <BrowserRouter>
-          <header>
-            <Link to={"/"}>Front page</Link>
-            <Link to={"/AllMatchingStudents"}>List all matching students</Link>
-            <Link to={"/AllStudents"}>All students</Link>
-            <Link to={"/AllGroups"}>All groups</Link>
-            <div className="menu-divider" />
-          </header>
+          {/*<header>*/}
+          {/*  <Link to={"/"}>Front page</Link>*/}
+          {/*  <Link to={"/AllMatchingStudents"}>List all matching students</Link>*/}
+          {/*  <Link to={"/AllStudents"}>All students</Link>*/}
+          {/*  <Link to={"/AllGroups"}>All groups</Link>*/}
+          {/*  <div className="menu-divider" />*/}
+          {/*</header>*/}
           <main>
             <Routes>
-              <Route path={"/"} element={<FrontPage />} />
+              <Route
+                path={"/"}
+                element={isMobile ? <Dashboard /> : <FrontPage />}
+              />
               <Route
                 path={"/AllMatchingStudents"}
                 element={<MatchingStudents />}
