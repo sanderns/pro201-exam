@@ -73,11 +73,7 @@ export function Typography({ element, weight, children }) {
   // Returns desired type of typography
   switch (element) {
     case "h1":
-      return (
-        <h1 className={`${elementStyle} ${weightStyle} text-purple-100`}>
-          {children}
-        </h1>
-      );
+      return <h1 className={`${elementStyle} ${weightStyle}`}>{children}</h1>;
     case "h2":
       return <h2 className={`${elementStyle} ${weightStyle}`}>{children}</h2>;
     case "h3":
