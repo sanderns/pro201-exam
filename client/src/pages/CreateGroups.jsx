@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { apiContext } from "../contexts/api-context";
-import { FormInput } from "../components/formInput";
-import { FormTextarea } from "../components/formTextArea";
+import { FormInput } from "../components/FormInput";
+import { FormTextArea } from "../components/FormTextArea";
 
 export function CreateGroup() {
   const { groupContext } = useContext(apiContext);
@@ -26,7 +26,7 @@ export function CreateGroup() {
       <h2>Create Group</h2>
 
       <FormInput label={"name:"} value={name} onChangeValue={setName} />
-      <FormTextarea label={"Text:"} value={aboutUs} setValue={setAboutUs} />
+      <FormTextArea label={"Text:"} value={aboutUs} setValue={setAboutUs} />
       <FormInput
         label={"gradeGoal:"}
         value={gradeGoal}

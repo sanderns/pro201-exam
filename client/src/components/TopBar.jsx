@@ -13,7 +13,7 @@ export function TopBar() {
     }
   }, []);
 
-  function handleBackClick(event) {
+  function handleBackClick() {
     navigate(-1);
   }
 

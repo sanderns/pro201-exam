@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "./Button";
 import { Typography } from "./Typography";
-import { DetailedStudentCard } from "./DetailedStudentCard";
 
-export function StudentCard({ student }) {
-  const [showDetailed, setShowDetailed] = useState(false);
+export function StudentCard({ student, onClick }) {
   const { name, aboutMe } = student;
 
-  function viewMore() {
-    setShowDetailed(!showDetailed);
+  function handleClick() {
+    onClick(student);
   }
 
   return (
@@ -24,11 +22,12 @@ export function StudentCard({ student }) {
       <Typography element={"p2"} weight={"bold"}>
         About me
       </Typography>
-      <Typography element={"p2"}>{aboutMe}</Typography>
-      <Button type={"gradient"} onClickFn={viewMore}>
+      <Typography element={"p2"} weight={"regular"}>
+        {aboutMe}
+      </Typography>
+      <Button type={"gradient"} onClickFn={handleClick}>
         View more
       </Button>
-      {showDetailed && <DetailedStudentCard student={student} />}
     </div>
   );
 }

@@ -23,7 +23,7 @@ export function Navbar() {
               className={`${
                 index === active &&
                 "text-white bg-gradient-to-r from-gradient-left to-gradient-right"
-              } flex flex-col items-center grow py-3`}
+              } flex flex-col items-center grow py-2`}
             >
               <div className="flex justify-center">{navbar.icon}</div>
               <div className="flex justify-center">
