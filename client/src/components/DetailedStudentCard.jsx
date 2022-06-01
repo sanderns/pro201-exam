@@ -32,6 +32,7 @@ export function DetailedStudentCard({
       >
         <PersonOutlineOutlinedIcon fontSize="large" />
       </div>
+      <div className="w-72" />
       <Typography element={"p2"} weight={"bold"}>
         {name}
       </Typography>
@@ -64,10 +65,10 @@ export function DetailedStudentCard({
         {aboutMe}
       </Typography>
       <div className={"flex justify-evenly pt-5"}>
-        <Button type={"gradient"} onClickFn={() => onRequest}>
+        <Button type={"gradient"} onClickFn={onRequest}>
           Send request
         </Button>
-        <Button type={"gradient"} onClickFn={() => onMessage}>
+        <Button type={"gradient"} onClickFn={onMessage}>
           Send message
         </Button>
       </div>
