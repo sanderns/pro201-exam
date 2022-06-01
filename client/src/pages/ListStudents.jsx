@@ -1,20 +1,13 @@
 import { useLoading } from "../hooks/useLoading";
 import { fetchJSON } from "../api/fetchJSON";
-
-function StudentList({ student: { name, study, subjects } }) {
-  return (
-    <>
-      <h2>Name: {name}</h2>
-      <h3>Study: {study}</h3>
-      <h3>Subjects: {subjects}</h3>
-    </>
-  );
-}
+import { ContactCategory } from "../components/ContactCategory";
 
 export function ListStudents() {
-  const { loading, error, data } = useLoading(async () =>
-    fetchJSON("/api/students")
-  );
+  const {
+    loading,
+    error,
+    data: contacts,
+  } = useLoading(async () => fetchJSON("/api/students"));
 
   if (loading) {
     return <div>Loading...</div>;
@@ -30,11 +23,8 @@ export function ListStudents() {
   }
 
   return (
-    <div>
-      <h1>List of students</h1>
-      {data.map((student) => (
-        <StudentList key={student.name} student={student} />
-      ))}
+    <div className="p-5">
+      <ContactCategory />
     </div>
   );
 }

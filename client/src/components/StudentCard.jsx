@@ -1,20 +1,17 @@
 import React from "react";
-import { Button } from "./Button";
-import { Typography } from "./Typography";
+import { Button } from "./ui/Button";
+import { Typography } from "./ui/Typography";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 export function StudentCard({ student, onClick }) {
   const { name, aboutMe } = student;
 
-  function handleClick() {
-    onClick(student);
-  }
-
   return (
     <div className={`m-5 bg-white rounded-2xl drop-shadow p-5 grid gap-2.5`}>
       <div
-        className={`bg-gradient-to-r from-gradient-left to-gradient-right rounded-xl h-24 flex justify-center items-center `}
+        className={`bg-gradient-to-r from-gradient-left to-gradient-right rounded-xl h-24 flex justify-center items-center text-white`}
       >
-        ICON
+        <PersonOutlineOutlinedIcon fontSize="large" />
       </div>
       <Typography element={"p2"} weight={"bold"}>
         {name}
@@ -25,7 +22,7 @@ export function StudentCard({ student, onClick }) {
       <Typography element={"p2"} weight={"regular"}>
         {aboutMe}
       </Typography>
-      <Button type={"gradient"} onClickFn={handleClick}>
+      <Button type={"gradient"} onClick={() => onClick(student)}>
         View more
       </Button>
     </div>

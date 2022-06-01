@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "./Typography";
 
-export function Button({ type, children, onClickFn }) {
+export function Button({ type, children, onClick }) {
   // Handles no provided theme
   if (type !== "gradient" && type !== "flat") {
     console.log('Theme is not defined! Value set to "flat".');
@@ -29,12 +29,12 @@ export function Button({ type, children, onClickFn }) {
   // Handles onClickFn
   function handleClick(event) {
     // If no function is provided
-    if (onClickFn == null) {
+    if (onClick == null) {
       console.log("onClickFn not defined!");
     }
     // If function is provided
     else {
-      onClickFn(event);
+      onClick(event);
     }
   }
 

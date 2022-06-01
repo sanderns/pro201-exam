@@ -1,31 +1,18 @@
 import { fetchJSON } from "../api/fetchJSON";
 import { useLoading } from "../hooks/useLoading";
-import {GroupCard} from "../components/GroupCard";
-import {SearchBar} from "../components/SearchBar";
-import {TopBar} from "../components/TopBar";
-
-function GroupList({group}) {
-const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
-
-  return (
-    <>
-      <div>
-        <GroupCard group={group} />
-      </div>
-      {/*<h2>Name: {name}</h2>
-      <h3>About us: {aboutUs}</h3>
-      <h3>Grade goal: {gradeGoal}</h3>
-      <h3>Study: {study}</h3>
-      <h3>Subjects: {subject}</h3>
-      <h3>Study time: {studyTime}</h3>*/}
-    </>
-  );
-}
+import { GroupCard } from "../components/GroupCard";
+import React, { useState } from "react";
+import { ModalWrapper } from "../components/wrappers/ModalWrapper";
+import { DetailedGroupCard } from "../components/DetailedGroupCard";
 
 export function AllGroups() {
-  const { loading, error, data } = useLoading(async () =>
-    fetchJSON("/api/groups")
-  );
+  const [selectedGroup, setSelectedGroup] = useState(undefined);
+  const [showModal, setShowModal] = useState(false);
+  const {
+    loading,
+    error,
+    data: groups,
+  } = useLoading(async () => fetchJSON("/api/groups"));
 
   if (loading) {
     return <div>Loading...</div>;
@@ -39,14 +26,26 @@ export function AllGroups() {
     );
   }
 
+  function handleClick(group) {
+    setSelectedGroup(group);
+    setShowModal(true);
+  }
+
   return (
-    <div>
-        <TopBar />
-      <h1>List of Groups</h1>
-        <SearchBar/>
-      {data.map((group) => (
-        <GroupList key={group.name} group={group} />
+    <div className="relative">
+      {groups.map((group) => (
+        <GroupCard key={group.name} group={group} onClick={handleClick} />
       ))}
+      {showModal && (
+        <ModalWrapper onClose={() => setShowModal(false)}>
+          <DetailedGroupCard
+            group={selectedGroup}
+            onClose={() => setShowModal(false)}
+            onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+            onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+          />
+        </ModalWrapper>
+      )}
     </div>
   );
 }

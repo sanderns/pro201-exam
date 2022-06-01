@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Typography } from "./Typography";
 import { useNavigate } from "react-router-dom";
-import { navList } from "../navigation-config";
+import { navList } from "../../navigation-config";
 
-export function Navbar() {
+export function NavBar() {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 

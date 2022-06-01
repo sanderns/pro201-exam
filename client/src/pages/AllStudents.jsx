@@ -1,38 +1,23 @@
 import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
-import { TopBar } from "../components/TopBar";
-import {SearchBar} from "../components/SearchBar";
-import {useState} from "react";
-
-function StudentList({ student }) {
-  const { name, study, subject, gradeGoal, studyTime, aboutMe } = student;
-
-  return (
-    <>
-      <div>
-        <StudentCard student={student} />
-      </div>
-      {/*<div>*/}
-      {/*  <h2>Name: {name}</h2>*/}
-      {/*  <h3>Study: {study}</h3>*/}
-      {/*  <h3>Subjects: {subject}</h3>*/}
-      {/*  <h3>Grade goal: {gradeGoal}</h3>*/}
-      {/*  <h3>Study time: {studyTime}</h3>*/}
-      {/*  <h3>About me: {aboutMe}</h3>*/}
-      {/*</div>*/}
-    </>
-  );
-}
+import React, { useState } from "react";
+import { DetailedStudentCard } from "../components/DetailedStudentCard";
+import { ModalWrapper } from "../components/wrappers/ModalWrapper";
 
 export function AllStudents() {
-  const { loading, error, data } = useLoading(async () =>
-    fetchJSON("/api/students")
-  );
+  const [selectedStudent, setSelectedStudent] = useState(undefined);
+  const [showModal, setShowModal] = useState(false);
+  const {
+    loading,
+    error,
+    data: students,
+  } = useLoading(async () => fetchJSON("/api/students"));
 
   if (loading) {
     return <div>Loading...</div>;
   }
+
   if (error) {
     return (
       <div>
@@ -42,14 +27,26 @@ export function AllStudents() {
     );
   }
 
+  function handleClick(student) {
+    setSelectedStudent(student);
+    setShowModal(true);
+  }
+
   return (
-    <div>
-      <TopBar />
-      <h1>List of students</h1>
-        <SearchBar/>
-      {data.map((student) => (
-        <StudentList key={student.name} student={student} />
+    <div className="relative">
+      {students.map((student, index) => (
+        <StudentCard key={index} student={student} onClick={handleClick} />
       ))}
+      {showModal && (
+        <ModalWrapper onClose={() => setShowModal(false)}>
+          <DetailedStudentCard
+            student={selectedStudent}
+            onClose={() => setShowModal(false)}
+            onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+            onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+          />
+        </ModalWrapper>
+      )}
     </div>
   );
 }

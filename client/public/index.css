@@ -484,6 +484,29 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.-top-3 {
+  top: -0.75rem;
+}
+
+.-right-3 {
+  right: -0.75rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -500,16 +523,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
-.top-5 {
-  top: 1.25rem;
+.top-1\/2 {
+  top: 50%;
 }
 
-.right-5 {
-  right: 1.25rem;
+.left-1\/2 {
+  left: 50%;
 }
 
 .z-10 {
   z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .z-0 {
@@ -537,16 +564,40 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
 .h-24 {
   height: 6rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-72 {
+  width: 18rem;
 }
 
 .w-24 {
@@ -557,8 +608,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-grow: 1;
 }
 
+.-translate-x-2\/4 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-2\/4 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .list-disc {
   list-style-type: disc;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -585,20 +654,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-evenly;
 }
 
-.gap-2\.5 {
-  gap: 0.625rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-2\.5 {
+  gap: 0.625rem;
 }
 
 .gap-5 {
   gap: 1.25rem;
 }
 
-.rounded-standard {
-  border-radius: 7px;
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-2xl {
@@ -609,8 +682,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.75rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
+.rounded-standard {
+  border-radius: 7px;
+}
+
+.rounded-r-md {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.rounded-l-full {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
 }
 
 .bg-purple-500 {
@@ -618,14 +701,34 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(242 242 250 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-status-online {
+  --tw-bg-opacity: 1;
+  background-color: rgb(155 255 129 / var(--tw-bg-opacity));
+}
+
+.bg-purple-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(150 153 213 / var(--tw-bg-opacity));
+}
+
+.bg-purple-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(176 178 223 / var(--tw-bg-opacity));
+}
+
 .bg-purple-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(124 127 202 / var(--tw-bg-opacity));
 }
 
-.bg-white {
+.bg-black {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -653,6 +756,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 2.5rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -663,9 +771,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .pt-10 {
@@ -729,31 +844,33 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .drop-shadow {
   --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.main{
-  display: flex;
-  height: 40px;
-  width: 335px;
-  align-items: flex-start;
-  flex-direction: row;
-  padding: 8px 16px;
-  gap: 10px;
-}
-
-.search{
-  width: 30%;
-}
-
 @font-face {
   font-family: 'Be Vietnam';
 
-  src: url('./fonts/BeVietnam-Regular.ttf');
+  src: url('public/fonts/BeVietnam-Regular.ttf');
 
-  src: local('Be Vietnam'), url('./fonts/BeVietnam-Regular.ttf') format('truetype');
+  src: local('Be Vietnam'), url('public/fonts/BeVietnam-Regular.ttf') format('truetype');
 
   font-weight: 400;
 
@@ -763,9 +880,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam Medium';
 
-  src: url('./fonts/BeVietnam-Medium.ttf');
+  src: url('public/fonts/BeVietnam-Medium.ttf');
 
-  src: local('Be Vietnam Medium'), url('./fonts/BeVietnam-Medium.ttf') format('truetype');
+  src: local('Be Vietnam Medium'), url('public/fonts/BeVietnam-Medium.ttf') format('truetype');
 
   font-weight: 500;
 
@@ -775,9 +892,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam SemiBold';
 
-  src: url('./fonts/BeVietnam-SemiBold.ttf');
+  src: url('public/fonts/BeVietnam-SemiBold.ttf');
 
-  src: local('Be Vietnam SemiBold'), url('./fonts/BeVietnam-SemiBold.ttf') format('truetype');
+  src: local('Be Vietnam SemiBold'), url('public/fonts/BeVietnam-SemiBold.ttf') format('truetype');
 
   font-weight: 600;
 
@@ -787,9 +904,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam Bold';
 
-  src: url('./fonts/BeVietnam-Bold.ttf');
+  src: url('public/fonts/BeVietnam-Bold.ttf');
 
-  src: local('Be Vietnam Bold'), url('./fonts/BeVietnam-Bold.ttf') format('truetype');
+  src: local('Be Vietnam Bold'), url('public/fonts/BeVietnam-Bold.ttf') format('truetype');
 
   font-weight: 800;
 
