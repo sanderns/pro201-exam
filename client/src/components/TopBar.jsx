@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
-import { Typography } from "./Typography";
 
 export function TopBar() {
   const [canBack, setCanBack] = useState(false);
@@ -14,7 +13,7 @@ export function TopBar() {
     }
   }, []);
 
-  function handleBackClick(event) {
+  function handleBackClick() {
     navigate(-1);
   }
 
@@ -32,9 +31,7 @@ export function TopBar() {
       >
         <ArrowBackIosNewIcon />
       </button>
-      <Typography element={"h1"} weight={"regular"}>
-        LOGO
-      </Typography>
+      <div>LOGO</div>
       <button onClick={handleMenuClick}>
         <MenuIcon />
       </button>

@@ -22,22 +22,32 @@ export function DetailedStudentCard({ student }) {
       </Typography>
       <ul className={`list-disc mx-8`}>
         <li>
-          <Typography element={"p2"}>{study}</Typography>
+          <Typography element={"p2"} weight={"regular"}>
+            {study}
+          </Typography>
         </li>
         <li>
-          <Typography element={"p2"}>{subject}</Typography>
+          <Typography element={"p2"} weight={"regular"}>
+            {subject}
+          </Typography>
         </li>
         <li>
-          <Typography element={"p2"}>{gradeGoal}</Typography>
+          <Typography element={"p2"} weight={"regular"}>
+            {gradeGoal}
+          </Typography>
         </li>
         <li>
-          <Typography element={"p2"}>{studyTime}</Typography>
+          <Typography element={"p2"} weight={"regular"}>
+            {studyTime}
+          </Typography>
         </li>
       </ul>
       <Typography element={"p2"} weight={"bold"}>
         About me
       </Typography>
-      <Typography element={"p2"}>{aboutMe}</Typography>
+      <Typography element={"p2"} weight={"regular"}>
+        {aboutMe}
+      </Typography>
       <div className={"flex justify-around"}>
         <Button type={"gradient"} onClickFn={() => console.log("Clicked!")}>
           Send request

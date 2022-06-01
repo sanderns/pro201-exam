@@ -19,6 +19,7 @@ export function ListStudents() {
   if (loading) {
     return <div>Loading...</div>;
   }
+
   if (error) {
     return (
       <div>
@@ -31,7 +32,6 @@ export function ListStudents() {
   return (
     <div>
       <h1>List of students</h1>
-
       {data.map((student) => (
         <StudentList key={student.name} student={student} />
       ))}
