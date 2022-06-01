@@ -19,14 +19,14 @@ module.exports = {
           500: "#C6C6C6",
           600: "#E8E8E8",
         },
-        gradient: {
-          left: "#9F83F1",
-          right: "#7C7FCA",
-        },
-        icon: {
-          yellow: "#FFD66B",
-          red: "#FFA1A1",
-        },
+        "gradient-left": "#9F83F1",
+        "gradient-right": "#7C7FCA",
+        "icon-yellow": "#FFD66B",
+        "icon-red": "#FFA1A1",
+        "status-online": "#9BFF81",
+        "status-busy": "#FF8181",
+        "status-away": "#FFF281",
+        "status-offline": "#C6C6C6",
       },
       borderRadius: {
         standard: "7px",
