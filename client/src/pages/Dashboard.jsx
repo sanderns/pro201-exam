@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "../components/Typography";
-import { NavCard } from "../components/NavCard";
+import { Typography } from "../components/ui/Typography";
+import { NavCard } from "../components/ui/NavCard";
 import { navList } from "../navigation-config";
 import { ContentWrapper } from "../components/wrappers/ContentWrapper";
 

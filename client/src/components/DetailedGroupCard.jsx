@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "./Typography";
-import { Button } from "./Button";
+import { Typography } from "./ui/Typography";
+import { Button } from "./ui/Button";
 
 export function DetailedGroupCard({ group }) {
   const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;

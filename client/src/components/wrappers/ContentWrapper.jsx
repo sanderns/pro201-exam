@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { TopBar } from "../TopBar";
-import { Navbar } from "../Navbar";
+import { TopBar } from "../ui/TopBar";
+import { Navbar } from "../ui/Navbar";
 import DeviceContext from "../../contexts/device-context";
 
 export function ContentWrapper({ children }) {

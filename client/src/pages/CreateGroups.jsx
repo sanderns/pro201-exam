@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { apiContext } from "../contexts/api-context";
-import { FormInput } from "../components/FormInput";
-import { FormTextArea } from "../components/FormTextArea";
+import { FormInput } from "../components/ui/FormInput";
+import { FormTextArea } from "../components/ui/FormTextArea";
 
 export function CreateGroup() {
   const { groupContext } = useContext(apiContext);

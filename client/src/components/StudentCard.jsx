@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "./Button";
-import { Typography } from "./Typography";
+import { Button } from "./ui/Button";
+import { Typography } from "./ui/Typography";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 export function StudentCard({ student, onClick }) {

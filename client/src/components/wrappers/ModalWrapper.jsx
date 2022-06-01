@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export function Modal({ children, onClose }) {
+export function ModalWrapper({ children, onClose }) {
   return ReactDOM.createPortal(
     <>
       <div onClick={onClose} className="fixed inset-0 bg-black opacity-70" />

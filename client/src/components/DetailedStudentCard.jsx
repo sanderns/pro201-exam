@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "./Typography";
-import { Button } from "./Button";
+import { Typography } from "./ui/Typography";
+import { Button } from "./ui/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 

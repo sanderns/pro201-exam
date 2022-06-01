@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "./Button";
-import { Typography } from "./Typography";
+import { Button } from "./ui/Button";
+import { Typography } from "./ui/Typography";
 import { DetailedGroupCard } from "./DetailedGroupCard";
 
 export function GroupCard({ group, onClick }) {
