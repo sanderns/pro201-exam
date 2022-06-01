@@ -706,11 +706,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-status-online {
-  --tw-bg-opacity: 1;
-  background-color: rgb(155 255 129 / var(--tw-bg-opacity));
-}
-
 .bg-purple-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(150 153 213 / var(--tw-bg-opacity));
@@ -868,9 +863,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam';
 
-  src: url('public/fonts/BeVietnam-Regular.ttf');
+  src: url('./fonts/BeVietnam-Regular.ttf');
 
-  src: local('Be Vietnam'), url('public/fonts/BeVietnam-Regular.ttf') format('truetype');
+  src: local('Be Vietnam'), url('./fonts/BeVietnam-Regular.ttf') format('truetype');
 
   font-weight: 400;
 
@@ -880,9 +875,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam Medium';
 
-  src: url('public/fonts/BeVietnam-Medium.ttf');
+  src: url('./fonts/BeVietnam-Medium.ttf');
 
-  src: local('Be Vietnam Medium'), url('public/fonts/BeVietnam-Medium.ttf') format('truetype');
+  src: local('Be Vietnam Medium'), url('./fonts/BeVietnam-Medium.ttf') format('truetype');
 
   font-weight: 500;
 
@@ -892,9 +887,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam SemiBold';
 
-  src: url('public/fonts/BeVietnam-SemiBold.ttf');
+  src: url('./fonts/BeVietnam-SemiBold.ttf');
 
-  src: local('Be Vietnam SemiBold'), url('public/fonts/BeVietnam-SemiBold.ttf') format('truetype');
+  src: local('Be Vietnam SemiBold'), url('./fonts/BeVietnam-SemiBold.ttf') format('truetype');
 
   font-weight: 600;
 
@@ -904,9 +899,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'Be Vietnam Bold';
 
-  src: url('public/fonts/BeVietnam-Bold.ttf');
+  src: url('./fonts/BeVietnam-Bold.ttf');
 
-  src: local('Be Vietnam Bold'), url('public/fonts/BeVietnam-Bold.ttf') format('truetype');
+  src: local('Be Vietnam Bold'), url('./fonts/BeVietnam-Bold.ttf') format('truetype');
 
   font-weight: 800;
 
