@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { apiContext } from "../contexts/api-context";
-import { FormInput } from "../components/formInput";
-import { FormTextarea } from "../components/formTextArea";
+import { FormInput } from "../components/FormInput";
+import { FormTextArea } from "../components/FormTextArea";
 
 export function CreateUser() {
   const { userContext } = useContext(apiContext);
@@ -43,7 +43,7 @@ export function CreateUser() {
         onChangeValue={setStudyTime}
       />
 
-      <FormTextarea label={"Text:"} value={aboutMe} setValue={setAboutMe} />
+      <FormTextArea label={"Text:"} value={aboutMe} setValue={setAboutMe} />
       <div>
         <button>Save</button>
       </div>
