@@ -2,6 +2,8 @@ import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
 import { TopBar } from "../components/TopBar";
+import {SearchBar} from "../components/SearchBar";
+import {useState} from "react";
 
 function StudentList({ student }) {
   const { name, study, subject, gradeGoal, studyTime, aboutMe } = student;
@@ -44,6 +46,7 @@ export function AllStudents() {
     <div>
       <TopBar />
       <h1>List of students</h1>
+        <SearchBar/>
       {data.map((student) => (
         <StudentList key={student.name} student={student} />
       ))}

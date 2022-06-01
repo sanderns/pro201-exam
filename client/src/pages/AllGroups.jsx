@@ -1,6 +1,8 @@
 import { fetchJSON } from "../api/fetchJSON";
 import { useLoading } from "../hooks/useLoading";
 import {GroupCard} from "../components/GroupCard";
+import {SearchBar} from "../components/SearchBar";
+import {TopBar} from "../components/TopBar";
 
 function GroupList({group}) {
 const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
@@ -39,8 +41,9 @@ export function AllGroups() {
 
   return (
     <div>
+        <TopBar />
       <h1>List of Groups</h1>
-
+        <SearchBar/>
       {data.map((group) => (
         <GroupList key={group.name} group={group} />
       ))}

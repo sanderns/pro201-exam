@@ -734,6 +734,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.main{
+  display: flex;
+  height: 40px;
+  width: 335px;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 8px 16px;
+  gap: 10px;
+}
+
+.search{
+  width: 30%;
+}
+
 @font-face {
   font-family: 'Be Vietnam';
 
