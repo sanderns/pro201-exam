@@ -14,7 +14,7 @@ export function ContentWrapper({ children }) {
 
   if (isMobile) {
     return (
-      <div className="z-0 min-h-screen grid grid-rows-3">
+      <div className="z-0 min-h-screen">
         <>
           <div className="fixed left-0 right-0 top-0 z-10">
             <TopBar />

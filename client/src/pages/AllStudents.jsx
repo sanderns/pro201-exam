@@ -1,8 +1,8 @@
 import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
-import { DetailedStudentCard } from "../components/DetailedStudentCard";
 import React, { useState } from "react";
+import { DetailedStudentCard } from "../components/DetailedStudentCard";
 
 export function AllStudents() {
   const [selectedStudent, setSelectedStudent] = useState(undefined);
@@ -12,7 +12,6 @@ export function AllStudents() {
     error,
     data: students,
   } = useLoading(async () => fetchJSON("/api/students"));
-  let aria = true;
 
   if (loading) {
     return <div>Loading...</div>;
@@ -27,39 +26,23 @@ export function AllStudents() {
     );
   }
 
-  function handleSelectedStudent(student) {
+  function handleClick(student) {
     setSelectedStudent(student);
     setShowModal(true);
-    aria = false;
-  }
-
-  function closeModal() {
-    setShowModal(false);
-    aria = true;
   }
 
   return (
-    <div>
+    <div className="relative">
       {students.map((student, index) => (
-        <StudentCard
-          key={index}
-          student={student}
-          onClick={handleSelectedStudent}
-        />
+        <StudentCard key={index} student={student} onClick={handleClick} />
       ))}
       {showModal && (
-        <div
-          id="defaultModal"
-          tabIndex="-1"
-          aria-hidden={aria}
-          className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
-        >
-          <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <DetailedStudentCard student={selectedStudent} />
-            </div>
-          </div>
-        </div>
+        <DetailedStudentCard
+          student={selectedStudent}
+          onClose={() => setShowModal(false)}
+          onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+          onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+        />
       )}
     </div>
   );
