@@ -32,7 +32,7 @@ export function AllGroups() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative grid grid-cols-2 p-5 gap-5">
       {groups.map((group) => (
         <GroupCard key={group.name} group={group} onClick={handleClick} />
       ))}
