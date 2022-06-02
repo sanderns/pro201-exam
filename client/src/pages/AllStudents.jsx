@@ -33,7 +33,7 @@ export function AllStudents() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative grid grid-cols-2 p-5 gap-5">
       {students.map((student, index) => (
         <StudentCard key={index} student={student} onClick={handleClick} />
       ))}

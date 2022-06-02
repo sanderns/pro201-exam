@@ -16,7 +16,7 @@ export function ContentWrapper({ children }) {
     return (
       <div className="z-0 min-h-screen">
         <>
-          <div className="fixed left-0 right-0 top-0 z-10">
+          <div className="fixed left-0 right-0 top-0 z-20">
             <TopBar />
           </div>
           <div className="invisible">
@@ -25,7 +25,7 @@ export function ContentWrapper({ children }) {
         </>
         {children}
         <>
-          <div className="fixed left-0 right-0 bottom-0 z-10">
+          <div className="fixed left-0 right-0 bottom-0 z-20">
             <NavBar />
           </div>
           <div className="invisible">
