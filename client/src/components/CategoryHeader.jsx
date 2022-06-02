@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Typography } from "./ui/Typography";
-import { ContactCard } from "./ContactCard";
-import { RequestCard } from "./RequestCard";
 
-export function ContactCategory({ name, contacts }) {
+export function CategoryHeader({ name, children }) {
   const [hidden, setHidden] = useState(false);
-  const { requests, uncategorized } = contacts;
 
   return (
     <div className="flex flex-col gap-2">
@@ -19,15 +16,7 @@ export function ContactCategory({ name, contacts }) {
           </Typography>
         </button>
       </div>
-
-      {!hidden &&
-        (name === "Requests"
-          ? requests.map((contact, index) => (
-              <RequestCard key={index} contact={contact} />
-            ))
-          : uncategorized.map((contact, index) => (
-              <ContactCard key={index} contact={contact} />
-            )))}
+      {!hidden && children}
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import { useLoading } from "../hooks/useLoading";
 import { fetchJSON } from "../api/fetchJSON";
-import { ContactCategory } from "../components/ContactCategory";
+import { CategoryHeader } from "../components/CategoryHeader";
+import { RequestCard } from "../components/RequestCard";
+import { ContactCard } from "../components/ContactCard";
+import React from "react";
 
 export function ListContacts() {
   const categories = ["Requests", "Uncategorized"];
@@ -54,7 +57,15 @@ export function ListContacts() {
   return (
     <div className="p-5 flex flex-col gap-5">
       {categories.map((category, index) => (
-        <ContactCategory key={index} name={category} contacts={contacts} />
+        <CategoryHeader key={index} name={category}>
+          {category === "Requests"
+            ? contacts.requests.map((contact, index) => (
+                <RequestCard key={index} contact={contact} />
+              ))
+            : contacts.uncategorized.map((contact, index) => (
+                <ContactCard key={index} contact={contact} />
+              ))}
+        </CategoryHeader>
       ))}
     </div>
   );
