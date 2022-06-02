@@ -1,14 +1,23 @@
 import React from "react";
 import { Typography } from "./ui/Typography";
 import { Button } from "./ui/Button";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-export function DetailedGroupCard({ group }) {
+export function DetailedGroupCard({ group, onClose, onRequest, onMessage }) {
   const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
 
   return (
     <div
       className={`m-5 bg-white rounded-2xl drop-shadow p-5 grid gap-2.5 relative`}
     >
+      <button
+        onClick={onClose}
+        className={
+          "absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-gradient-left to-gradient-right rounded-full flex justify-center items-center text-white"
+        }
+      >
+        <CloseOutlinedIcon />
+      </button>
       <div className="w-72" />
       <Typography element={"p2"} weight={"bold"}>
         {name}
@@ -42,10 +51,22 @@ export function DetailedGroupCard({ group }) {
         {aboutUs}
       </Typography>
       <div className={"flex justify-around"}>
-        <Button type={"gradient"} onClick={() => console.log("Clicked!")}>
+        <Button
+          type={"gradient"}
+          onClick={() =>
+            console.log("TODO: Make this button show a confirmation modal")
+          }
+        >
+          {/* TODO: Make this button show a confirmation modal */}
           Send request
         </Button>
-        <Button type={"gradient"} onClick={() => console.log("Clicked!")}>
+        <Button
+          type={"gradient"}
+          onClick={() =>
+            console.log("TODO: Make this button navigate to send message page")
+          }
+        >
+          {/* TODO: Make this button navigate to send message page */}
           Send message
         </Button>
       </div>

@@ -6,7 +6,7 @@ import { ContentWrapper } from "../components/wrappers/ContentWrapper";
 
 export function Dashboard() {
   return (
-    <div>
+    <div className="height-full flex flex-col justify-center">
       <div className="p-5 gap-5 flex flex-col justify-center text-center">
         <div className="px-10 m-2">
           <Typography element={"h2"} weight={"medium"}>

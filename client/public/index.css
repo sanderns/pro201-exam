@@ -507,6 +507,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 1.25rem;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
+.left-24 {
+  left: 6rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
+.left-8 {
+  left: 2rem;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -564,6 +580,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
+.\!hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -578,6 +602,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-24 {
   height: 6rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .min-h-screen {
@@ -604,6 +636,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 6rem;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .grow {
   flex-grow: 1;
 }
@@ -624,6 +660,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .list-disc {
   list-style-type: disc;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -670,16 +710,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-2xl {
   border-radius: 1rem;
 }
 
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-standard {
