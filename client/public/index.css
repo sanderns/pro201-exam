@@ -706,6 +706,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-status-online {
+  --tw-bg-opacity: 1;
+  background-color: rgb(155 255 129 / var(--tw-bg-opacity));
+}
+
 .bg-purple-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(150 153 213 / var(--tw-bg-opacity));
