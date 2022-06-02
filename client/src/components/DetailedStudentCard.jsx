@@ -65,10 +65,22 @@ export function DetailedStudentCard({
         {aboutMe}
       </Typography>
       <div className={"flex justify-evenly pt-5"}>
-        <Button type={"gradient"} onClickFn={onRequest}>
+        <Button
+          type={"gradient"}
+          onClick={() =>
+            console.log("TODO: Make this button show a confirmation modal")
+          }
+        >
+          {/* TODO: Make this button show a confirmation modal */}
           Send request
         </Button>
-        <Button type={"gradient"} onClickFn={onMessage}>
+        <Button
+          type={"gradient"}
+          onClick={() =>
+            console.log("TODO: Make this button navigate to send message page")
+          }
+        >
+          {/* TODO: Make this button navigate to send message page */}
           Send message
         </Button>
       </div>

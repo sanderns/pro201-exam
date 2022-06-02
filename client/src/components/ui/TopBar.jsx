@@ -14,11 +14,11 @@ export function TopBar() {
   }, []);
 
   function handleBackClick() {
-    navigate(-1);
+    navigate(-1); // TODO: Make it so this button works everywhere
   }
 
   function handleMenuClick() {
-    console.log(""); // TODO: Fix this button and pop-up sidebar
+    console.log("TODO: Fix this button to show sidebar"); // TODO: Fix this button to show sidebar
   }
 
   return (

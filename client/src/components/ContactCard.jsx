@@ -5,7 +5,7 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
 export function ContactCard({ contact }) {
   function openDialog() {
-    console.log("Dialog WIP");
+    console.log("TODO: Make this button navigate to live chat"); // TODO: Make this button navigate to live chat
   }
 
   return (
@@ -28,7 +28,7 @@ export function ContactCard({ contact }) {
         </div>
       </div>
       <button
-        onClick={() => console.log("More options WIP")}
+        onClick={() => console.log("TODO: Make this button open more options")} // TODO: Make this button open more options
         className="pr-2 w-8 h-8 flex justify-center items-center z-20"
       >
         <MoreHorizOutlinedIcon fontSize="large" />

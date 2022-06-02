@@ -23,13 +23,13 @@ export function RequestCard({ contact }) {
       </div>
       <div className="flex gap-2 text-white">
         <button
-          onClick={() => console.log("Deny WIP")}
+          onClick={() => console.log("TODO: Make this button deny a request")} // TODO: Make this button deny a request
           className="w-8 h-8 rounded shadow bg-purple-200 flex justify-center items-center z-20"
         >
           <CloseOutlinedIcon />
         </button>
         <button
-          onClick={() => console.log("Accept WIP")}
+          onClick={() => console.log("TODO: Make this button accept a request")} // TODO: Make this button accept a request
           className="w-8 h-8 rounded shadow bg-purple-300 flex justify-center items-center z-20"
         >
           <CheckOutlinedIcon />
