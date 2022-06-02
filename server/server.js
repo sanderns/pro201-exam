@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 mongoClient.connect().then(async () => {
-    console.log("Connected to mongodb");
+    console.log("Connected to student database");
     app.use(
         "/api/students",
         StudentsApi(mongoClient.db(process.env.MONGODB_DATABASE || "SmidigProsjekt"))
@@ -22,7 +22,7 @@ mongoClient.connect().then(async () => {
 
 const mongoClientGroup = new MongoClient(process.env.MONGODB_URL);
 mongoClientGroup.connect().then(async () => {
-    console.log("Connected to mongodb");
+    console.log("Connected to group database");
     app.use(
         "/api/groups",
         GroupApi(mongoClientGroup.db(process.env.MONGODB_DATABASE || "SmidigProsjekt"))
