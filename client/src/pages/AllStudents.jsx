@@ -4,32 +4,32 @@ import { useLoading } from "../hooks/useLoading";
 import React, { useState } from "react";
 import { DetailedStudentCard } from "../components/DetailedStudentCard";
 import { ModalWrapper } from "../components/wrappers/ModalWrapper";
-import {SearchBar} from "../components/ui/SearchBar";
-import {Button} from "../components/ui/Button";
-import students from "tailwindcss/peers";
+import { SearchBar } from "../components/ui/SearchBar";
+import { Button } from "../components/ui/Button";
 
-function search(input) {
+function search(students, input) {
+  // If input is "" then dont do anything
+  if (input === "") {
+    return students;
+  }
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-  {
-    students.filter((student)=>{
-    if (searchTerm == "") {
-      return student
-    } else if (StudentCard.toLowerCase().includes(searchTerm.toLowerCase())){
-
+  // Else check students for user input and return it
+  const tempList = [];
+  students.forEach((student) => {
+    if (student.name === input) {
+      tempList.push(student);
     }
+  });
 
-    }).map((student, index) => (
-        <StudentCard key={index} student={student}/>
-    ))
-}
+  return tempList;
 }
 
 export function AllStudents() {
   const [input, setInput] = useState(undefined);
+  const [studentList, setStudentList] = useState();
   const [selectedStudent, setSelectedStudent] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
+
   const {
     loading,
     error,
@@ -54,17 +54,27 @@ export function AllStudents() {
     setShowModal(true);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    setStudentList(search(students, input));
+  }
+
   return (
     <div className="relative">
-      <form onSubmit={() =>search(input)} className="p-5">
+      {/* onSubmit runs Search function and onChange changes input / user preference */}
+      <form onSubmit={handleSubmit} className="p-5">
         <SearchBar onChange={setInput} />
-        {input}
         <Button type={"flat"}>Submit</Button>
       </form>
-      );
-      {students.map((student, index) => (
-        <StudentCard key={index} student={student} onClick={handleClick} />
-      ))}
+      {/* Checks if studentList exists, if not: map students, else map studentList */}
+      {!studentList
+        ? students.map((student, index) => (
+            <StudentCard key={index} student={student} onClick={handleClick} />
+          ))
+        : studentList.map((student, index) => (
+            <StudentCard key={index} student={student} onClick={handleClick} />
+          ))}
+      {/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */}
       {showModal && (
         <ModalWrapper onClose={() => setShowModal(false)}>
           <DetailedStudentCard
