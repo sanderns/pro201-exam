@@ -1,16 +1,17 @@
-import {TextField} from "@mui/material";
+import { TextField } from "@mui/material";
 
-export function SearchBar() {
-    return (
-        <div className="main">
-            <div className="search">
-                <TextField
-                    id="outlined-basic"
-                    variant="outlined"
-                    fullWidth
-                    label="Search"
-                />
-        </div>
-        </div>
-    );
+export function SearchBar({ onChange }) {
+  return (
+    <div className="main">
+      <div className="search">
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth
+          label="Search"
+          onChange={(event) => onChange(event.target.value)}
+        />
+      </div>
+    </div>
+  );
 }
