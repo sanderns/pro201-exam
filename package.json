@@ -35,7 +35,7 @@
   },
   "engines": {
     "node": "17.3.1",
-    "npm": "8.1.0"
+    "npm": "8.3.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
