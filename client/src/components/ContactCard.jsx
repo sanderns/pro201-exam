@@ -2,6 +2,7 @@ import React from "react";
 import { Typography } from "./ui/Typography";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import { ContactStatus } from "./ContactStatus";
 
 export function ContactCard({ contact }) {
   function openDialog() {
@@ -20,12 +21,7 @@ export function ContactCard({ contact }) {
         <Typography element={"h3"} weight={"regular"}>
           {contact}
         </Typography>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-status-online rounded-full" />
-          <Typography element={"p1"} weight={"regular"}>
-            Online
-          </Typography>
-        </div>
+        <ContactStatus />
       </div>
       <button
         onClick={() => console.log("TODO: Make this button open more options")} // TODO: Make this button open more options

@@ -57,7 +57,7 @@ export function ListContacts() {
   return (
     <div className="p-5 flex flex-col gap-5">
       {categories.map((category, index) => (
-        <CategoryHeader key={index} name={category}>
+        <CategoryHeader key={index} name={category} canHide={true}>
           {category === "Requests"
             ? contacts.requests.map((contact, index) => (
                 <RequestCard key={index} contact={contact} />
