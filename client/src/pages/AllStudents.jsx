@@ -78,6 +78,7 @@ export function AllStudents() {
           <MessageBox
             onClose={() => setShowMessage(false)}
             displayText={"Send"}
+            onSend={requestClick}
           />
         </Modal>
       )}

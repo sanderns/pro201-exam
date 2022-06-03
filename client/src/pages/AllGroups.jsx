@@ -61,27 +61,28 @@ export function AllGroups() {
             onRequest={() => setShowRequest(true)} // TODO: Make this button work
             onMessage={() => setShowMessage(true)} // TODO: Make this button work
           />
-        </ModalWrapper>
+        </Modal>
       )}
       {showRequest && (
-        <ModalWrapper onClose={() => setShowRequest(false)}>
+        <Modal onClose={() => setShowRequest(false)}>
           <VerifyBox
             onClose={() => setShowRequest(false)}
             displayText={"Do you wish to proceed"}
             onYes={requestClick}
           />
-        </ModalWrapper>
+        </Modal>
       )}
       {showMessage && (
-        <ModalWrapper onClose={() => setShowMessage(false)}>
+        <Modal onClose={() => setShowMessage(false)}>
           <MessageBox
             onClose={() => setShowMessage(false)}
             displayText={"Send"}
+            onSend={requestClick}
           />
-        </ModalWrapper>
+        </Modal>
       )}
       {showVerify && (
-        <ModalWrapper onClose={() => setShowVerify(false)}>
+        <Modal onClose={() => setShowVerify(false)}>
           <ConfirmationBox
             onCloseAll={handleCloseAll}
             displayText={"Your request has been sent"}
