@@ -4,18 +4,16 @@ import { useLoading } from "../hooks/useLoading";
 import React, { useState } from "react";
 import { DetailedStudentCard } from "../components/DetailedStudentCard";
 import { ModalWrapper } from "../components/wrappers/ModalWrapper";
-import { RequestWrapper } from "../components/wrappers/RequestWrapper";
-import {VerifyBox} from "../components/VerifyBox";
-import {MessageBox} from "../components/MessageBox";
-import {ConfirmationBox} from "../components/ConfirmationBox";
+import { VerifyBox } from "../components/VerifyBox";
+import { MessageBox } from "../components/MessageBox";
+import { ConfirmationBox } from "../components/ConfirmationBox";
 
 export function MatchingStudents() {
   const [selectedStudent, setSelectedStudent] = useState(undefined);
-  const [showModal,setShowModal] = useState(false);
-  const [showRequest,setShowRequest] = useState(false);
-  const [showMessage,setShowMessage] = useState(false);
-  const [showVerify,setShowVerify] = useState(false);
-  const [showConfirmation,setShowConfirmation] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showRequest, setShowRequest] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [showVerify, setShowVerify] = useState(false);
   const {
     loading,
     error,
@@ -39,11 +37,16 @@ export function MatchingStudents() {
     setSelectedStudent(student);
     setShowModal(true);
   }
-  function confirmClick() {
-    setShowConfirmation(true);
-  }
+
   function requestClick() {
     setShowVerify(true);
+  }
+
+  function handleCloseAll() {
+    setShowModal(false);
+    setShowRequest(false);
+    setShowMessage(false);
+    setShowVerify(false);
   }
 
   return (
@@ -62,23 +65,31 @@ export function MatchingStudents() {
         </ModalWrapper>
       )}
       {showRequest && (
-          <ModalWrapper onClose={() => setShowRequest(false)}>
-            <VerifyBox onClose={() => setShowRequest(false)} displayText={"Do you wish to proceed"}/>
-          </ModalWrapper>
-      )
-    }
-      {showMessage && (
-          <ModalWrapper onClose={() => setShowMessage(false)}>
-            <MessageBox onClose={() => setShowMessage(false)} displayText={"Send"} onYes={requestClick}/>
-          </ModalWrapper>
+        <ModalWrapper onClose={() => setShowRequest(false)}>
+          <VerifyBox
+            onClose={() => setShowRequest(false)}
+            displayText={"Do you wish to proceed"}
+            onYes={requestClick}
+          />
+        </ModalWrapper>
       )}
-      {showConfirmation && (
-          <ModalWrapper onClose={() => setShowConfirmation(false)}>
-            <ConfirmationBox onClose={() => setShowConfirmation(false)} displayText={"Your request has been sent"} onConfirm={confirmClick}/>
-          </ModalWrapper>
-      )
-
-    }
+      {showMessage && (
+        <ModalWrapper onClose={() => setShowMessage(false)}>
+          <MessageBox
+            onClose={() => setShowMessage(false)}
+            displayText={"Send"}
+            onSend={requestClick}
+          />
+        </ModalWrapper>
+      )}
+      {showVerify && (
+        <ModalWrapper onClose={() => setShowVerify(false)}>
+          <ConfirmationBox
+            onCloseAll={handleCloseAll}
+            displayText={"Your request has been sent"}
+          />
+        </ModalWrapper>
+      )}
     </div>
   );
 }
