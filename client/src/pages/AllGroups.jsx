@@ -2,7 +2,7 @@ import { fetchJSON } from "../api/fetchJSON";
 import { useLoading } from "../hooks/useLoading";
 import { GroupCard } from "../components/GroupCard";
 import React, { useState } from "react";
-import { ModalWrapper } from "../components/wrappers/ModalWrapper";
+import { Modal } from "../components/Modal";
 import { DetailedGroupCard } from "../components/DetailedGroupCard";
 import {SearchBar} from "../components/ui/SearchBar";
 import {Button} from "../components/ui/Button";
@@ -71,14 +71,14 @@ export function AllGroups() {
               <GroupCard key={group.name} group={group} onClick={handleClick} />
           ))}
       {showModal && (
-        <ModalWrapper onClose={() => setShowModal(false)}>
+        <Modal onClose={() => setShowModal(false)}>
           <DetailedGroupCard
             group={selectedGroup}
             onClose={() => setShowModal(false)}
             onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
             onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
           />
-        </ModalWrapper>
+        </Modal>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography } from "./ui/Typography";
 
-export function CategoryHeader({ name, children }) {
+export function CategoryHeader({ name, canHide, children }) {
   const [hidden, setHidden] = useState(false);
 
   return (
@@ -10,11 +10,13 @@ export function CategoryHeader({ name, children }) {
         <Typography element={"h2"} weight={"bold"}>
           {name}
         </Typography>
-        <button onClick={() => setHidden(!hidden)}>
-          <Typography element={"p1"} weight={"regular"}>
-            {hidden ? "Show" : "Hide"}
-          </Typography>
-        </button>
+        {canHide && (
+          <button onClick={() => setHidden(!hidden)}>
+            <Typography element={"p1"} weight={"regular"}>
+              {hidden ? "Show" : "Hide"}
+            </Typography>
+          </button>
+        )}
       </div>
       {!hidden && children}
     </div>

@@ -1,20 +1,60 @@
-import { SearchBar } from "../components/ui/SearchBar";
-import { useState } from "react";
-import { Button } from "../components/ui/Button";
+import { CategoryHeader } from "../components/CategoryHeader";
+import React from "react";
+import { MessageCard } from "../components/MessageCard";
+
+const dummyData = [
+  {
+    user: "Chad",
+    message: "Sup my dude",
+    status: {
+      indicator: "online",
+      children: undefined,
+    },
+    timestamp: "06:59",
+  },
+  {
+    user: "Sander",
+    message: "Work work",
+    status: {
+      indicator: "busy",
+      children: undefined,
+    },
+    timestamp: "05:55",
+  },
+  {
+    user: "Bob",
+    message: "Zzz",
+    status: {
+      indicator: "away",
+      children: undefined,
+    },
+    timestamp: "03:33",
+  },
+  {
+    user: "Karen",
+    message: "**** off",
+    status: {
+      indicator: "offline",
+      children: undefined,
+    },
+    timestamp: "02:22",
+  },
+];
 
 export function Chat() {
-  const [input, setInput] = useState(undefined);
-
-  function search(event) {
-    event.preventDefault();
-    // TODO: Fix this
-  }
-
   return (
-    <form onSubmit={search} className="p-5">
-      <SearchBar onChange={setInput} />
-      {input}
-      <Button type={"flat"}>Submit</Button>
-    </form>
+    <div className="p-5 flex flex-col gap-5">
+      <CategoryHeader name={"Recent messages"} canHide={false}>
+        {dummyData.map(({ user, message, status, timestamp }, index) => (
+          <MessageCard
+            key={index}
+            user={user}
+            message={message}
+            status={status}
+            timestamp={timestamp}
+          />
+        ))}
+      </CategoryHeader>
+    </div>
   );
 }

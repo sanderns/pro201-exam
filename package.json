@@ -33,6 +33,10 @@
     "husky": "^8.0.1",
     "prettier": "^2.6.2"
   },
+  "engines": {
+    "node": "17.3.1",
+    "npm": "8.3.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3"

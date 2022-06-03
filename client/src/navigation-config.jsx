@@ -1,4 +1,3 @@
-import { FrontPage } from "./pages/FrontPage";
 import { Dashboard } from "./pages/Dashboard";
 import { MatchingStudents } from "./pages/MatchingStudents";
 import { AllStudents } from "./pages/AllStudents";
@@ -14,34 +13,38 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 export const navList = [
   {
     path: "/",
-    element: <FrontPage />,
-    mobileElement: <Dashboard />,
+    element: <Dashboard />,
+    mobileElement: false,
     dashboard: false,
     navbar: {
       icon: <PersonSearchOutlinedIcon fontSize="large" />,
       text: "Search",
     },
+    frontpage: false,
   },
   {
     path: "/students/recommended",
     element: <MatchingStudents />,
     mobileElement: false,
-    dashboard: { text: "List all matching students" },
+    dashboard: { text: "List matching students" },
     navbar: false,
+    frontpage: { text: "List all matching students" },
   },
   {
     path: "/students/all",
     element: <AllStudents />,
     mobileElement: false,
-    dashboard: { text: "List all students" },
+    dashboard: { text: "List students wanting groups" },
     navbar: false,
+    frontpage: { text: "List all students" },
   },
   {
     path: "/groups/all",
     element: <AllGroups />,
     mobileElement: false,
-    dashboard: { text: "List all groups" },
+    dashboard: { text: "List groups wanting students" },
     navbar: false,
+    frontpage: { text: "List all groups" },
   },
   {
     path: "/chat",
@@ -52,6 +55,7 @@ export const navList = [
       icon: <ChatBubbleOutlineOutlinedIcon fontSize="large" />,
       text: "Chat",
     },
+    frontpage: { text: "Chat" },
   },
   {
     path: "/students/add",
@@ -59,6 +63,7 @@ export const navList = [
     mobileElement: false,
     dashboard: false,
     navbar: false,
+    frontpage: { text: "Add student" },
   },
   {
     path: "/groups/add",
@@ -66,6 +71,7 @@ export const navList = [
     mobileElement: false,
     dashboard: false,
     navbar: false,
+    frontpage: { text: "Add group" },
   },
   {
     path: "/students",
@@ -76,5 +82,6 @@ export const navList = [
       icon: <PeopleAltOutlinedIcon fontSize="large" />,
       text: "Contacts",
     },
+    frontpage: false,
   },
 ];
