@@ -3,7 +3,7 @@ import { Typography } from "./ui/Typography";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CheckOutlinedIcon from "@mui/icons-material/CheckOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { ContactStatus } from "./ContactStatus";
+import { OnlineStatus } from "./OnlineStatus";
 
 export function RequestCard({ contact }) {
   return (
@@ -15,7 +15,7 @@ export function RequestCard({ contact }) {
         <Typography element={"h3"} weight={"regular"}>
           {contact}
         </Typography>
-        <ContactStatus />
+        <OnlineStatus />
       </div>
       <div className="flex gap-2 text-white">
         <button

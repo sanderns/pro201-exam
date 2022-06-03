@@ -1,7 +1,7 @@
 import { Typography } from "./ui/Typography";
 import React from "react";
 
-export function ContactStatus({ indicator, children }) {
+export function OnlineStatus({ indicator, children }) {
   // Handles no provided indicator
   if (
     indicator !== "online" &&

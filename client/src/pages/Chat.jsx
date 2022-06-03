@@ -1,6 +1,6 @@
 import { CategoryHeader } from "../components/CategoryHeader";
 import React from "react";
-import { RecentMessage } from "../components/RecentMessage";
+import { MessageCard } from "../components/MessageCard";
 
 const dummyData = [
   {
@@ -46,7 +46,7 @@ export function Chat() {
     <div className="p-5 flex flex-col gap-5">
       <CategoryHeader name={"Recent messages"} canHide={false}>
         {dummyData.map(({ user, message, status, timestamp }, index) => (
-          <RecentMessage
+          <MessageCard
             key={index}
             user={user}
             message={message}

@@ -3,7 +3,7 @@ import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
 import React, { useState } from "react";
 import { DetailedStudentCard } from "../components/DetailedStudentCard";
-import { ModalWrapper } from "../components/wrappers/ModalWrapper";
+import { Modal } from "../components/Modal";
 
 export function AllStudents() {
   const [selectedStudent, setSelectedStudent] = useState(undefined);
@@ -38,14 +38,14 @@ export function AllStudents() {
         <StudentCard key={index} student={student} onClick={handleClick} />
       ))}
       {showModal && (
-        <ModalWrapper onClose={() => setShowModal(false)}>
+        <Modal onClose={() => setShowModal(false)}>
           <DetailedStudentCard
             student={selectedStudent}
             onClose={() => setShowModal(false)}
             onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
             onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
           />
-        </ModalWrapper>
+        </Modal>
       )}
     </div>
   );

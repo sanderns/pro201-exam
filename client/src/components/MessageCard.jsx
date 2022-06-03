@@ -1,10 +1,10 @@
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import { Typography } from "./ui/Typography";
-import { ContactStatus } from "./ContactStatus";
+import { OnlineStatus } from "./OnlineStatus";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import React from "react";
 
-export function RecentMessage({ user, status, message, timestamp }) {
+export function MessageCard({ user, status, message, timestamp }) {
   const { indicator, text } = status;
 
   function handleClick() {
@@ -32,9 +32,9 @@ export function RecentMessage({ user, status, message, timestamp }) {
             {user}
           </Typography>
           {!text ? (
-            <ContactStatus indicator={indicator} />
+            <OnlineStatus indicator={indicator} />
           ) : (
-            <ContactStatus indicator={indicator}>{text}</ContactStatus>
+            <OnlineStatus indicator={indicator}>{text}</OnlineStatus>
           )}
         </div>
         <button

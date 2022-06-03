@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "./ui/Typography";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-import { ContactStatus } from "./ContactStatus";
+import { OnlineStatus } from "./OnlineStatus";
 
 export function ContactCard({ contact }) {
   function openDialog() {
@@ -26,7 +26,7 @@ export function ContactCard({ contact }) {
         <Typography element={"h3"} weight={"regular"}>
           {contact}
         </Typography>
-        <ContactStatus />
+        <OnlineStatus />
       </div>
       <button
         onClick={(event) => handleButton(event)}
