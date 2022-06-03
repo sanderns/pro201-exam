@@ -507,6 +507,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 1.25rem;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
 .left-24 {
   left: 6rem;
 }
@@ -596,12 +600,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
-.h-8 {
-  height: 2rem;
-}
-
 .h-2 {
   height: 0.5rem;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .h-24 {
@@ -624,12 +628,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 4rem;
 }
 
-.w-8 {
-  width: 2rem;
-}
-
 .w-2 {
   width: 0.5rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .w-72 {
@@ -642,10 +646,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-48 {
-  width: 12rem;
 }
 
 .grow {
@@ -710,10 +710,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0.625rem;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-5 {
   gap: 1.25rem;
 }
@@ -728,10 +724,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-md {
-  border-radius: 0.375rem;
 }
 
 .rounded {
@@ -752,10 +744,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-left-radius: 9999px;
 }
 
-.rounded-tl-3xl {
-  border-top-left-radius: 1.5rem;
-}
-
 .bg-purple-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 250 / var(--tw-bg-opacity));
@@ -769,21 +757,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-status-online {
   --tw-bg-opacity: 1;
   background-color: rgb(155 255 129 / var(--tw-bg-opacity));
-}
-
-.bg-status-busy {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 129 129 / var(--tw-bg-opacity));
-}
-
-.bg-status-away {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 242 129 / var(--tw-bg-opacity));
-}
-
-.bg-status-offline {
-  --tw-bg-opacity: 1;
-  background-color: rgb(198 198 198 / var(--tw-bg-opacity));
 }
 
 .bg-purple-200 {
