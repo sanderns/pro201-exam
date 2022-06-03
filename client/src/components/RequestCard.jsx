@@ -15,7 +15,7 @@ export function RequestCard({ contact }) {
         <Typography element={"h3"} weight={"regular"}>
           {contact}
         </Typography>
-        <OnlineStatus />
+        <OnlineStatus indicator={"online"} />
       </div>
       <div className="flex gap-2 text-white">
         <button

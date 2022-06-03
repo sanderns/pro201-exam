@@ -26,7 +26,7 @@ export function ContactCard({ contact }) {
         <Typography element={"h3"} weight={"regular"}>
           {contact}
         </Typography>
-        <OnlineStatus />
+        <OnlineStatus indicator={"online"} />
       </div>
       <button
         onClick={(event) => handleButton(event)}
