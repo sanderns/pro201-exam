@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "./ui/Typography";
-import { ContactCard } from "./ContactCard";
 
-export function ContactCategory() {
+export function CategoryHeader({ name, children }) {
+  const [hidden, setHidden] = useState(false);
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-center gap-2">
         <Typography element={"h2"} weight={"bold"}>
-          Category name
+          {name}
         </Typography>
-        <button>
+        <button onClick={() => setHidden(!hidden)}>
           <Typography element={"p1"} weight={"regular"}>
-            Hide
+            {hidden ? "Show" : "Hide"}
           </Typography>
         </button>
       </div>
-      <ContactCard />
+      {!hidden && children}
     </div>
   );
 }
