@@ -1,4 +1,3 @@
-import { FrontPage } from "./pages/FrontPage";
 import { Dashboard } from "./pages/Dashboard";
 import { MatchingStudents } from "./pages/MatchingStudents";
 import { AllStudents } from "./pages/AllStudents";
@@ -14,8 +13,8 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 export const navList = [
   {
     path: "/",
-    element: <FrontPage />,
-    mobileElement: <Dashboard />,
+    element: <Dashboard />,
+    mobileElement: false,
     dashboard: false,
     navbar: {
       icon: <PersonSearchOutlinedIcon fontSize="large" />,

@@ -6,7 +6,7 @@ import { ContactCard } from "../components/ContactCard";
 import React from "react";
 
 export function ListContacts() {
-  const categories = ["Requests", "Uncategorized"];
+  const categories = ["Requests", "Groups", "Students"];
 
   const {
     loading: l1,
@@ -34,39 +34,56 @@ export function ListContacts() {
 
   const contacts = {
     requests: [],
-    uncategorized: [],
+    groups: [],
+    students: [],
   };
 
   // TODO: Rename function to a more understandable name?
-  function pickOne(contact) {
-    const random = Math.floor(Math.random() * categories.length);
-    if (random === categories.length - 1) {
-      contacts.uncategorized.push(contact.name);
-    } else {
+  function pickOne(contact, list) {
+    const random = Math.floor(Math.random() * 2);
+    if (random === 0) {
       contacts.requests.push(contact.name);
+    } else {
+      list.push(contact.name);
     }
   }
 
   students.forEach((student) => {
-    pickOne(student);
+    pickOne(student, contacts.students);
   });
   groups.forEach((group) => {
-    pickOne(group);
+    pickOne(group, contacts.groups);
   });
 
   return (
     <div className="p-5 flex flex-col gap-5">
-      {categories.map((category, index) => (
-        <CategoryHeader key={index} name={category} canHide={true}>
-          {category === "Requests"
-            ? contacts.requests.map((contact, index) => (
-                <RequestCard key={index} contact={contact} />
-              ))
-            : contacts.uncategorized.map((contact, index) => (
-                <ContactCard key={index} contact={contact} />
-              ))}
+      {contacts.requests !== [] ? (
+        <CategoryHeader name={"Requests"} canHide={true}>
+          {contacts.requests.map((contact, index) => (
+            <RequestCard key={index} contact={contact} />
+          ))}
         </CategoryHeader>
-      ))}
+      ) : (
+        ""
+      )}
+      {contacts.groups !== [] ? (
+        <CategoryHeader name={"Requests"} canHide={true}>
+          {contacts.groups.map((contact, index) => (
+            <ContactCard key={index} contact={contact} />
+          ))}
+        </CategoryHeader>
+      ) : (
+        ""
+      )}
+      {contacts.students !== [] ? (
+        <CategoryHeader name={"Requests"} canHide={true}>
+          {contacts.students.map((contact, index) => (
+            <ContactCard key={index} contact={contact} />
+          ))}
+        </CategoryHeader>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
