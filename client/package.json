@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "parcel watch public/index.html",
     "test": "jest",
-    "build": "npm install --include=dev && npm run build:parcel && npm run build-css",
-    "build:parcel": "parcel build index.html",
+    "build": "npm install --include=dev && npm run build:parcel",
+    "build:parcel": "parcel build public/index.html",
     "build-css": "tailwindcss -i ./src/styles/config.css -o ./public/index.css"
   },
   "keywords": [],
