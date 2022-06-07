@@ -3,13 +3,11 @@ import { Typography } from "./ui/Typography";
 import { Button } from "./ui/Button";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-export function DetailedGroupCard({ group, onClose, onRequest, onMessage }) {
+export function GroupDetailed({ group, onClose, onRequest }) {
   const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
 
   return (
-    <div
-      className={`m-5 bg-white rounded-2xl drop-shadow p-5 grid gap-2.5 relative`}
-    >
+    <>
       <button
         onClick={onClose}
         className={
@@ -50,14 +48,11 @@ export function DetailedGroupCard({ group, onClose, onRequest, onMessage }) {
       <Typography element={"p2"} weight={"regular"}>
         {aboutUs}
       </Typography>
-      <div className={"flex justify-around"}>
+      <div className={"flex justify-end"}>
         <Button type={"gradient"} onClick={onRequest}>
           Send request
         </Button>
-        <Button type={"gradient"} onClick={onMessage}>
-          Send message
-        </Button>
       </div>
-    </div>
+    </>
   );
 }

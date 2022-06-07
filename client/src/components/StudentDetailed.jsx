@@ -4,19 +4,11 @@ import { Button } from "./ui/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-export function DetailedStudentCard({
-  student,
-  onClose,
-  onRequest,
-  onMessage,
-}) {
-  const { image, name, study, subject, gradeGoal, studyTime, aboutMe } =
-    student;
+export function StudentDetailed({ student, onClose, onRequest }) {
+  const { name, study, subject, gradeGoal, studyTime, aboutMe } = student;
 
   return (
-    <div
-      className={`m-5 bg-white rounded-2xl drop-shadow p-5 grid gap-2.5 relative`}
-    >
+    <>
       <button
         onClick={onClose}
         className={
@@ -64,20 +56,11 @@ export function DetailedStudentCard({
       <Typography element={"p2"} weight={"regular"}>
         {aboutMe}
       </Typography>
-      <div className={"flex justify-evenly pt-5"}>
-        <Button
-          type={"gradient"}
-          onClick={onRequest}
-        >
+      <div className={"flex justify-end pt-5"}>
+        <Button type={"gradient"} onClick={onRequest}>
           Send request
         </Button>
-        <Button
-          type={"gradient"}
-          onClick={onMessage}
-        >
-          Send message
-        </Button>
       </div>
-    </div>
+    </>
   );
 }

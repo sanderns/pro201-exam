@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./ui/Button";
 import { Typography } from "./ui/Typography";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { Card } from "./wrappers/Card";
 
 function GroupMemberCircle() {
   return (
@@ -15,9 +16,7 @@ export function GroupCard({ group, onClick }) {
   const { name, aboutUs } = group;
 
   return (
-    <div
-      className={`bg-white rounded-2xl drop-shadow p-5 flex flex-col grow gap-2.5`}
-    >
+    <Card>
       <Typography element={"p2"} weight={"bold"}>
         {name}
       </Typography>
@@ -28,10 +27,7 @@ export function GroupCard({ group, onClick }) {
         {aboutUs}
       </Typography>
       <div className="relative h-12">
-        {/* Functionality to map users in group to show the four or five most recently active users */}
-        <div className="absolute left-24">
-          <GroupMemberCircle />
-        </div>
+        {/* Should be functionality to map users in group to show the most recently active users */}
         <div className="absolute left-16">
           <GroupMemberCircle />
         </div>
@@ -45,6 +41,6 @@ export function GroupCard({ group, onClick }) {
       <Button type={"gradient"} onClick={() => onClick(group)}>
         View more
       </Button>
-    </div>
+    </Card>
   );
 }

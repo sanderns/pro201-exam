@@ -4,7 +4,7 @@ import { CategoryHeader } from "../components/CategoryHeader";
 import { RequestCard } from "../components/RequestCard";
 import { ContactCard } from "../components/ContactCard";
 import React, { useState } from "react";
-import { Modal } from "../components/Modal";
+import { Modal } from "../components/wrappers/Modal";
 import { ContactOptions } from "../components/ContactOptions";
 
 export function ListContacts() {

@@ -4,7 +4,7 @@ import DeviceContext from "./contexts/device-context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { navList } from "./navigation-config";
-import { ContentWrapper } from "./components/wrappers/ContentWrapper";
+import { Global } from "./components/wrappers/Global";
 
 function Application() {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -17,7 +17,7 @@ function Application() {
         }}
       >
         <BrowserRouter>
-          <ContentWrapper>
+          <Global>
             <Routes>
               {navList.map(({ path, element, mobileElement }, index) => (
                 <Route
@@ -33,7 +33,7 @@ function Application() {
                 />
               ))}
             </Routes>
-          </ContentWrapper>
+          </Global>
         </BrowserRouter>
       </DeviceContext.Provider>
     </div>

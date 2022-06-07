@@ -1,7 +1,7 @@
 import { CategoryHeader } from "../components/CategoryHeader";
 import React, { useState } from "react";
 import { MessageCard } from "../components/MessageCard";
-import { Modal } from "../components/Modal";
+import { Modal } from "../components/wrappers/Modal";
 import { useNavigate } from "react-router-dom";
 import { ContactOptions } from "../components/ContactOptions";
 

@@ -2,17 +2,15 @@ import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
 import React, { useState } from "react";
-import { DetailedStudentCard } from "../components/DetailedStudentCard";
-import { Modal } from "../components/Modal";
-import { VerifyBox } from "../components/VerifyBox";
-import { MessageBox } from "../components/MessageBox";
-import { ConfirmationBox } from "../components/ConfirmationBox";
+import { StudentDetailed } from "../components/StudentDetailed";
+import { Modal } from "../components/wrappers/Modal";
+import { Dialog } from "../components/Dialog";
+import { Alert } from "../components/Alert";
 
 export function MatchingStudents() {
   const [selectedStudent, setSelectedStudent] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
   const [showRequest, setShowRequest] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
   const [showVerify, setShowVerify] = useState(false);
   const {
     loading,
@@ -45,7 +43,6 @@ export function MatchingStudents() {
   function handleCloseAll() {
     setShowModal(false);
     setShowRequest(false);
-    setShowMessage(false);
     setShowVerify(false);
   }
 
@@ -56,38 +53,23 @@ export function MatchingStudents() {
       ))}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DetailedStudentCard
+          <StudentDetailed
             student={selectedStudent}
             onClose={() => setShowModal(false)}
             onRequest={() => setShowRequest(true)}
-            onMessage={() => setShowMessage(true)}
           />
         </Modal>
       )}
       {showRequest && (
         <Modal onClose={() => setShowRequest(false)}>
-          <VerifyBox
-            onClose={() => setShowRequest(false)}
-            displayText={"Do you wish to proceed"}
-            onYes={requestClick}
-          />
-        </Modal>
-      )}
-      {showMessage && (
-        <Modal onClose={() => setShowMessage(false)}>
-          <MessageBox
-            onClose={() => setShowMessage(false)}
-            displayText={"Send"}
-            onSend={requestClick}
-          />
+          <Dialog onCancel={() => setShowRequest(false)} onSend={requestClick}>
+            What should your first greeting be?
+          </Dialog>
         </Modal>
       )}
       {showVerify && (
         <Modal onClose={() => setShowVerify(false)}>
-          <ConfirmationBox
-            onCloseAll={handleCloseAll}
-            displayText={"Your request has been sent"}
-          />
+          <Alert onOk={handleCloseAll}>Your request has been sent!</Alert>
         </Modal>
       )}
     </div>
