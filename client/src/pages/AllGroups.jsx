@@ -58,8 +58,8 @@ export function AllGroups() {
           <DetailedGroupCard
             group={selectedGroup}
             onClose={() => setShowModal(false)}
-            onRequest={() => setShowRequest(true)} // TODO: Make this button work
-            onMessage={() => setShowMessage(true)} // TODO: Make this button work
+            onRequest={() => setShowRequest(true)}
+            onMessage={() => setShowMessage(true)}
           />
         </Modal>
       )}

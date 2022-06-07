@@ -5,7 +5,7 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { OnlineStatus } from "./OnlineStatus";
 import { useNavigate } from "react-router-dom";
 
-export function ContactCard({ contact }) {
+export function ContactCard({ contact, onClick }) {
   const navigate = useNavigate();
 
   function openDialog() {
@@ -14,13 +14,13 @@ export function ContactCard({ contact }) {
 
   function handleButton(event) {
     event.stopPropagation();
-    console.log("TODO: Make this button open more options"); // TODO: Make this button open more options
+    onClick(contact);
   }
 
   return (
     <div
       onClick={openDialog}
-      className="cursor-pointer p-2 pr-4 gap-2 flex bg-white rounded-r-md rounded-l-full items-center shadow-md z-10"
+      className="cursor-pointer p-2 pr-4 gap-2 flex bg-white rounded-r-md rounded-l-full items-center shadow-md"
     >
       <div className="w-16 h-16 bg-gradient-to-r from-gradient-left to-gradient-right rounded-full flex justify-center items-center text-white">
         <PersonOutlinedIcon fontSize="large" />
@@ -33,7 +33,7 @@ export function ContactCard({ contact }) {
       </div>
       <button
         onClick={(event) => handleButton(event)}
-        className="pr-2 w-8 h-8 flex justify-center items-center z-20"
+        className="pr-2 w-8 h-8 flex justify-center items-center"
       >
         <MoreHorizOutlinedIcon fontSize="large" />
       </button>

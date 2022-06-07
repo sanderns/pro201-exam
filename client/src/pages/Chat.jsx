@@ -1,6 +1,9 @@
 import { CategoryHeader } from "../components/CategoryHeader";
-import React from "react";
+import React, { useState } from "react";
 import { MessageCard } from "../components/MessageCard";
+import { Modal } from "../components/Modal";
+import { useNavigate } from "react-router-dom";
+import { ContactOptions } from "../components/ContactOptions";
 
 const dummyData = [
   {
@@ -42,6 +45,8 @@ const dummyData = [
 ];
 
 export function Chat() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="p-5 flex flex-col gap-5">
       <CategoryHeader name={"Recent messages"} canHide={false}>
@@ -52,9 +57,15 @@ export function Chat() {
             message={message}
             status={status}
             timestamp={timestamp}
+            onClick={() => setShowModal(true)}
           />
         ))}
       </CategoryHeader>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <ContactOptions onClose={() => setShowModal(false)} />
+        </Modal>
+      )}
     </div>
   );
 }

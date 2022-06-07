@@ -5,7 +5,7 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export function MessageCard({ user, status, message, timestamp }) {
+export function MessageCard({ user, status, message, timestamp, onClick }) {
   const { indicator, text } = status;
   const navigate = useNavigate();
 
@@ -15,10 +15,8 @@ export function MessageCard({ user, status, message, timestamp }) {
 
   function toggleOptions(event) {
     event.stopPropagation();
-    console.log("TODO: Make this button open more options"); // TODO: Make this button open more options
+    onClick(user);
   }
-
-  // cursor-pointer
 
   return (
     <div

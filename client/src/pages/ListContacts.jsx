@@ -3,9 +3,12 @@ import { fetchJSON } from "../api/fetchJSON";
 import { CategoryHeader } from "../components/CategoryHeader";
 import { RequestCard } from "../components/RequestCard";
 import { ContactCard } from "../components/ContactCard";
-import React from "react";
+import React, { useState } from "react";
+import { Modal } from "../components/Modal";
+import { ContactOptions } from "../components/ContactOptions";
 
 export function ListContacts() {
+  const [showModal, setShowModal] = useState(false);
   const categories = ["Requests", "Groups", "Students"];
 
   const {
@@ -69,7 +72,11 @@ export function ListContacts() {
       {contacts.groups !== [] ? (
         <CategoryHeader name={"Groups"} canHide={true}>
           {contacts.groups.map((contact, index) => (
-            <ContactCard key={index} contact={contact} />
+            <ContactCard
+              key={index}
+              contact={contact}
+              onClick={() => setShowModal(true)}
+            />
           ))}
         </CategoryHeader>
       ) : (
@@ -78,11 +85,22 @@ export function ListContacts() {
       {contacts.students !== [] ? (
         <CategoryHeader name={"Students"} canHide={true}>
           {contacts.students.map((contact, index) => (
-            <ContactCard key={index} contact={contact} />
+            <ContactCard
+              key={index}
+              contact={contact}
+              onClick={() => setShowModal(true)}
+            />
           ))}
         </CategoryHeader>
       ) : (
         ""
+      )}
+      {showModal && (
+        <div className="z-50">
+          <Modal onClose={() => setShowModal(false)}>
+            <ContactOptions onClose={() => setShowModal(false)} />
+          </Modal>
+        </div>
       )}
     </div>
   );
