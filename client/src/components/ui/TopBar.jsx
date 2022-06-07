@@ -26,10 +26,6 @@ export function TopBar() {
     navigate(backsTo);
   }
 
-  function handleMenuClick() {
-    console.log("TODO: Fix this button to show sidebar"); // TODO: Fix this button to show sidebar
-  }
-
   return (
     <div
       className={`flex justify-between items-center p-5 pt-10 bg-gradient-to-r from-gradient-left to-gradient-right text-white`}
@@ -41,7 +37,8 @@ export function TopBar() {
         <ArrowBackIosNewIcon />
       </button>
       <div>LOGO</div>
-      <button onClick={handleMenuClick}>
+      {/* BUTTON IS HIDDEN SINCE ITS NOT FULLY DEVELOPED */}
+      <button className="invisible">
         <MenuIcon />
       </button>
     </div>

@@ -491,10 +491,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
-.left-24 {
-  left: 6rem;
-}
-
 .left-16 {
   left: 4rem;
 }
@@ -608,6 +604,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 6rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -628,10 +628,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 18rem;
 }
 
-.w-64 {
-  width: 16rem;
-}
-
 .w-48 {
   width: 12rem;
 }
@@ -642,10 +638,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-24 {
   width: 6rem;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .shrink-0 {
@@ -714,16 +706,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
-}
-
 .justify-evenly {
   justify-content: space-evenly;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .gap-2 {
@@ -738,6 +722,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0.25rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -746,16 +738,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 1rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-lg {
   border-radius: 0.5rem;
 }
 
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-xl {
@@ -774,6 +766,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-l-full {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
+}
+
+.rounded-r-full {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
 }
 
 .rounded-tl-3xl {
@@ -921,16 +918,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 16px;
 }
 
+.text-sm {
+  font-size: 14px;
+}
+
 .text-xl {
   font-size: 24px;
 }
 
 .text-lg {
   font-size: 18px;
-}
-
-.text-sm {
-  font-size: 14px;
 }
 
 .text-xs {
@@ -1043,6 +1040,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1024px) {
+  .lg\:text-md {
+    font-size: 16px;
+  }
+
   .lg\:text-2xl {
     font-size: 36px;
   }
@@ -1053,10 +1054,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:text-lg {
     font-size: 18px;
-  }
-
-  .lg\:text-md {
-    font-size: 16px;
   }
 
   .lg\:text-sm {

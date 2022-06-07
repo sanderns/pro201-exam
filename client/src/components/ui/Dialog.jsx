@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "./ui/Typography";
-import { Button } from "./ui/Button";
+import { Typography } from "./Typography";
+import { Button } from "./Button";
 
 export function Dialog({ onCancel, onSend, children }) {
   return (
