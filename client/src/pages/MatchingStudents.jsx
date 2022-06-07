@@ -8,9 +8,12 @@ import { Dialog } from "../components/ui/Dialog";
 import { Alert } from "../components/ui/Alert";
 import { Typography } from "../components/ui/Typography";
 import { SearchBar } from "../components/ui/SearchBar";
+import { Filter } from "../components/Filter";
 
 export function MatchingStudents() {
   const [input, setInput] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [preferences, setPreferences] = useState({});
   const [selectedStudent, setSelectedStudent] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
   const [showRequest, setShowRequest] = useState(false);
@@ -34,6 +37,19 @@ export function MatchingStudents() {
     );
   }
 
+  function handlePreferences(university, subject, grade, time) {
+    setPreferences({
+      university: university,
+      subject: subject,
+      grade: grade,
+      time: time,
+    });
+  }
+
+  function filterStudents() {}
+
+  const filteredStudents = filterStudents();
+
   function handleClick(student) {
     setSelectedStudent(student);
     setShowModal(true);
@@ -54,17 +70,22 @@ export function MatchingStudents() {
       <Typography element={"h2"} weight={"bold"}>
         Students
       </Typography>
-      <SearchBar onChange={setInput} onClick={() => console.log("TODO")} />
+      <SearchBar onChange={setInput} onClick={() => setShowFilter(true)} />
       <div className="relative grid grid-cols-2 gap-5">
         {students.map(
           (student, index) =>
-            student.name.includes(input) && (
+            student.name.toUpperCase().includes(input.toUpperCase()) && (
               <StudentCard
                 key={index}
                 student={student}
                 onClick={handleClick}
               />
             )
+        )}
+        {showFilter && (
+          <Modal onClose={() => setShowFilter(false)}>
+            <Filter onSubmit={handlePreferences} />
+          </Modal>
         )}
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
