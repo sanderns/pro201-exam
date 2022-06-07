@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "./Typography";
 import { useNavigate } from "react-router-dom";
 import { navList } from "../../navigation-config";
@@ -7,10 +7,18 @@ export function NavBar() {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
-  function handleClick(index, href) {
-    setActive(index);
-    navigate(href);
-  }
+  useEffect(() => {
+    navList.map(
+      (item) => {
+        if (window.location.pathname.includes(item.path)) {
+          if (item.navbar !== false) {
+            setActive(item.navbar.id);
+          }
+        }
+      },
+      [window.location.pathname]
+    );
+  });
 
   return (
     <div className="flex justify-evenly bg-purple-500">
@@ -19,9 +27,9 @@ export function NavBar() {
           navbar && (
             <button
               key={index}
-              onClick={() => handleClick(index, path)}
+              onClick={() => navigate(path)}
               className={`${
-                index === active &&
+                navbar.id === active &&
                 "text-white bg-gradient-to-r from-gradient-left to-gradient-right"
               } flex flex-col items-center grow py-2`}
             >

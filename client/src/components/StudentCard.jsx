@@ -23,7 +23,11 @@ export function StudentCard({ student, onClick }) {
       <Typography element={"p2"} weight={"regular"}>
         {aboutMe}
       </Typography>
-      <Button type={"gradient"} onClick={() => onClick(student)}>
+      <Button
+        theme={"gradient"}
+        type={"normal"}
+        onClick={() => onClick(student)}
+      >
         View more
       </Button>
     </Card>

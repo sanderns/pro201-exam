@@ -57,7 +57,7 @@ export function StudentDetailed({ student, onClose, onRequest }) {
         {aboutMe}
       </Typography>
       <div className={"flex justify-end pt-5"}>
-        <Button type={"gradient"} onClick={onRequest}>
+        <Button theme={"gradient"} type={"normal"} onClick={onRequest}>
           Send request
         </Button>
       </div>

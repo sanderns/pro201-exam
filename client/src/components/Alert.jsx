@@ -9,7 +9,7 @@ export function Alert({ onOk, children }) {
         {children}
       </Typography>
       <div className="flex justify-end">
-        <Button type={"gradient"} onClick={onOk}>
+        <Button theme={"gradient"} type={"normal"} onClick={onOk}>
           OK
         </Button>
       </div>

@@ -11,7 +11,7 @@ export function MessageWriter({ onClick }) {
           placeholder="Message..."
           className="bg-purple-500 p-2 rounded-lg grow flex flex-wrap"
         />
-        <Button type={"flat"} onClick={onClick}>
+        <Button theme={"flat"} type={"normal"} onClick={onClick}>
           Send
         </Button>
       </div>

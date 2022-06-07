@@ -20,6 +20,7 @@ export const navList = [
     navbar: {
       icon: <PersonSearchOutlinedIcon fontSize="large" />,
       text: "Search",
+      id: 0,
     },
     frontpage: false,
     canBack: false,
@@ -77,6 +78,7 @@ export const navList = [
     navbar: {
       icon: <ChatBubbleOutlineOutlinedIcon fontSize="large" />,
       text: "Chat",
+      id: 1,
     },
     frontpage: { text: "Chat" },
     canBack: false,
@@ -98,6 +100,7 @@ export const navList = [
     navbar: {
       icon: <PeopleAltOutlinedIcon fontSize="large" />,
       text: "Contacts",
+      id: 2,
     },
     frontpage: false,
     canBack: false,

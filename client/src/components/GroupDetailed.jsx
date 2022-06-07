@@ -49,7 +49,7 @@ export function GroupDetailed({ group, onClose, onRequest }) {
         {aboutUs}
       </Typography>
       <div className={"flex justify-end"}>
-        <Button type={"gradient"} onClick={onRequest}>
+        <Button theme={"gradient"} type={"normal"} onClick={onRequest}>
           Send request
         </Button>
       </div>

@@ -38,7 +38,7 @@ export function GroupCard({ group, onClick }) {
           <GroupMemberCircle />
         </div>
       </div>
-      <Button type={"gradient"} onClick={() => onClick(group)}>
+      <Button theme={"gradient"} type={"normal"} onClick={() => onClick(group)}>
         View more
       </Button>
     </Card>
