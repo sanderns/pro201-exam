@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "./ui/Button";
-import { Typography } from "./ui/Typography";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 export function MessageBox({ onClose, displayText, onSend }) {
@@ -39,9 +38,7 @@ export function MessageBox({ onClose, displayText, onSend }) {
           className="p-2 bg-white rounded-full drop-shadow"
         />
         <Button onClick={onSend} type={"gradient"}>
-          <Typography element={"p2"} weight={"bold"}>
-            {displayText}
-          </Typography>
+          {displayText}
         </Button>
       </div>
     </div>
