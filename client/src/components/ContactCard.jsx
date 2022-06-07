@@ -3,10 +3,13 @@ import { Typography } from "./ui/Typography";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { OnlineStatus } from "./OnlineStatus";
+import { useNavigate } from "react-router-dom";
 
 export function ContactCard({ contact }) {
+  const navigate = useNavigate();
+
   function openDialog() {
-    console.log("TODO: Make this button navigate to live chat"); // TODO: Make this button navigate to live chat
+    navigate("/chat/live");
   }
 
   function handleButton(event) {
