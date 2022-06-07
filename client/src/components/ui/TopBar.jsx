@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import { navList } from "../../navigation-config";
 
 export function TopBar() {
   const [canBack, setCanBack] = useState(false);
+  const [backsTo, setBacksTo] = useState(undefined);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (window.location.pathname !== "/") {
-      setCanBack(true);
-    }
-  }, []);
+    navList.map((item) => {
+      if (item.path === window.location.pathname) {
+        if (item.canBack !== false) {
+          setCanBack(true);
+          setBacksTo(item.canBack.path);
+        } else {
+          setCanBack(false);
+        }
+      }
+    });
+  }, [window.location.pathname]);
 
   function handleBackClick() {
-    navigate(-1); // TODO: Make it so this button works everywhere
+    navigate(backsTo);
   }
 
   function handleMenuClick() {
