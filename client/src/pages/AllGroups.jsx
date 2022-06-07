@@ -4,31 +4,16 @@ import { GroupCard } from "../components/GroupCard";
 import React, { useState } from "react";
 import { Modal } from "../components/Modal";
 import { DetailedGroupCard } from "../components/DetailedGroupCard";
-import {SearchBar} from "../components/ui/SearchBar";
-import {Button} from "../components/ui/Button";
-
-function search(groups, input) {
-  // If input is "" then dont do anything
-  if (input === "") {
-    return groups;
-  }
-
-  //Else check students for user input and return it
-  const tempList = [];
-  groups.forEach((group) => {
-    if (group.name === input) {
-      tempList.push(group);
-    }
-  });
-
-  return tempList;
-}
+import { VerifyBox } from "../components/VerifyBox";
+import { MessageBox } from "../components/MessageBox";
+import { ConfirmationBox } from "../components/ConfirmationBox";
 
 export function AllGroups() {
-  const [input, setInput] = useState(undefined);
-  const [groupList, setGroupList] = useState();
   const [selectedGroup, setSelectedGroup] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
+  const [showRequest, setShowRequest] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [showVerify, setShowVerify] = useState(false);
   const {
     loading,
     error,
@@ -52,31 +37,55 @@ export function AllGroups() {
     setShowModal(true);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    setGroupList(search(groups, input));
+  function requestClick() {
+    setShowVerify(true);
+  }
+
+  function handleCloseAll() {
+    setShowModal(false);
+    setShowRequest(false);
+    setShowMessage(false);
+    setShowVerify(false);
   }
 
   return (
-    <div className="relative">
-      <form onSubmit={handleSubmit} className="p-5">
-        <SearchBar onChange={setInput} />
-        <Button type={"flat"}>Submit</Button>
-      </form>
-      {!groupList
-          ? groups.map((group) => (
-              <GroupCard key={group.name} group={group} onClick={handleClick} />
-          ))
-          : groupList.map((group) => (
-              <GroupCard key={group.name} group={group} onClick={handleClick} />
-          ))}
+    <div className="relative grid grid-cols-2 p-5 gap-5">
+      {groups.map((group) => (
+        <GroupCard key={group.name} group={group} onClick={handleClick} />
+      ))}
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DetailedGroupCard
             group={selectedGroup}
             onClose={() => setShowModal(false)}
-            onRequest={() => console.log("TODO: Make this button work")} // TODO: Make this button work
-            onMessage={() => console.log("TODO: Make this button work")} // TODO: Make this button work
+            onRequest={() => setShowRequest(true)} // TODO: Make this button work
+            onMessage={() => setShowMessage(true)} // TODO: Make this button work
+          />
+        </Modal>
+      )}
+      {showRequest && (
+        <Modal onClose={() => setShowRequest(false)}>
+          <VerifyBox
+            onClose={() => setShowRequest(false)}
+            displayText={"Do you wish to proceed"}
+            onYes={requestClick}
+          />
+        </Modal>
+      )}
+      {showMessage && (
+        <Modal onClose={() => setShowMessage(false)}>
+          <MessageBox
+            onClose={() => setShowMessage(false)}
+            displayText={"Send"}
+            onSend={requestClick}
+          />
+        </Modal>
+      )}
+      {showVerify && (
+        <Modal onClose={() => setShowVerify(false)}>
+          <ConfirmationBox
+            onCloseAll={handleCloseAll}
+            displayText={"Your request has been sent"}
           />
         </Modal>
       )}

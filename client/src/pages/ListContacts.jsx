@@ -67,7 +67,7 @@ export function ListContacts() {
         ""
       )}
       {contacts.groups !== [] ? (
-        <CategoryHeader name={"Requests"} canHide={true}>
+        <CategoryHeader name={"Groups"} canHide={true}>
           {contacts.groups.map((contact, index) => (
             <ContactCard key={index} contact={contact} />
           ))}
@@ -76,7 +76,7 @@ export function ListContacts() {
         ""
       )}
       {contacts.students !== [] ? (
-        <CategoryHeader name={"Requests"} canHide={true}>
+        <CategoryHeader name={"Students"} canHide={true}>
           {contacts.students.map((contact, index) => (
             <ContactCard key={index} contact={contact} />
           ))}

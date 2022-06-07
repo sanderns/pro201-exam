@@ -5,39 +5,39 @@ import { MessageCard } from "../components/MessageCard";
 const dummyData = [
   {
     user: "Chad",
-    message: "Sup my dude",
+    message: "Oppe og klar for å jobbe!?",
     status: {
       indicator: "online",
       children: undefined,
     },
-    timestamp: "06:59",
+    timestamp: "12:00",
   },
   {
-    user: "Sander",
-    message: "Work work",
+    user: "Bertha",
+    message: "Er ferdig med det straksen",
     status: {
       indicator: "busy",
       children: undefined,
     },
-    timestamp: "05:55",
+    timestamp: "11:00",
   },
   {
     user: "Bob",
-    message: "Zzz",
+    message: "Eksamen snart as, stressa ell?",
     status: {
       indicator: "away",
       children: undefined,
     },
-    timestamp: "03:33",
+    timestamp: "10.00",
   },
   {
     user: "Karen",
-    message: "**** off",
+    message: "Hvor skulle vi møtes i dag?",
     status: {
       indicator: "offline",
       children: undefined,
     },
-    timestamp: "02:22",
+    timestamp: "10:00",
   },
 ];
 

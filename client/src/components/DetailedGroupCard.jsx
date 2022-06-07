@@ -51,22 +51,10 @@ export function DetailedGroupCard({ group, onClose, onRequest, onMessage }) {
         {aboutUs}
       </Typography>
       <div className={"flex justify-around"}>
-        <Button
-          type={"gradient"}
-          onClick={() =>
-            console.log("TODO: Make this button show a confirmation modal")
-          }
-        >
-          {/* TODO: Make this button show a confirmation modal */}
+        <Button type={"gradient"} onClick={onRequest}>
           Send request
         </Button>
-        <Button
-          type={"gradient"}
-          onClick={() =>
-            console.log("TODO: Make this button navigate to send message page")
-          }
-        >
-          {/* TODO: Make this button navigate to send message page */}
+        <Button type={"gradient"} onClick={onMessage}>
           Send message
         </Button>
       </div>
