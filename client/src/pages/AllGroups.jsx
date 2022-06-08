@@ -68,9 +68,9 @@ export function AllGroups() {
       <SearchBar onChange={setInput} onClick={() => setShowFilter(true)} />
       <div className="relative grid grid-cols-2 gap-5">
         {groups.map(
-          (group) =>
+          (group, index) =>
             group.name.includes(input) && (
-              <GroupCard key={group.name} group={group} onClick={handleClick} />
+              <GroupCard key={index} group={group} onClick={handleClick} />
             )
         )}
         {showFilter && (
