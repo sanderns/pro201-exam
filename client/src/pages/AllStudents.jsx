@@ -8,9 +8,12 @@ import { Dialog } from "../components/ui/Dialog";
 import { Alert } from "../components/ui/Alert";
 import { Typography } from "../components/ui/Typography";
 import { SearchBar } from "../components/ui/SearchBar";
+import { Filter } from "../components/Filter";
 
 export function AllStudents() {
   const [input, setInput] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [preferences, setPreferences] = useState({});
   const [selectedStudent, setSelectedStudent] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
   const [showRequest, setShowRequest] = useState(false);
@@ -34,6 +37,15 @@ export function AllStudents() {
     );
   }
 
+  function handlePreferences(university, subject, grade, time) {
+    setPreferences({
+      university: university,
+      subject: subject,
+      grade: grade,
+      time: time,
+    });
+  }
+
   function handleClick(student) {
     setSelectedStudent(student);
     setShowModal(true);
@@ -54,7 +66,7 @@ export function AllStudents() {
       <Typography element={"h2"} weight={"bold"}>
         Students
       </Typography>
-      <SearchBar onChange={setInput} onClick={() => console.log("TODO")} />
+      <SearchBar onChange={setInput} onClick={() => setShowFilter(true)} />
       <div className="relative grid grid-cols-2 gap-5">
         {students.map(
           (student, index) =>
@@ -65,6 +77,11 @@ export function AllStudents() {
                 onClick={handleClick}
               />
             )
+        )}
+        {showFilter && (
+          <Modal onClose={() => setShowFilter(false)}>
+            <Filter onSubmit={handlePreferences} />
+          </Modal>
         )}
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

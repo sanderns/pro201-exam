@@ -8,9 +8,12 @@ import { Dialog } from "../components/ui/Dialog";
 import { Alert } from "../components/ui/Alert";
 import { Typography } from "../components/ui/Typography";
 import { SearchBar } from "../components/ui/SearchBar";
+import { Filter } from "../components/Filter";
 
 export function AllGroups() {
   const [input, setInput] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [preferences, setPreferences] = useState({});
   const [selectedGroup, setSelectedGroup] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
   const [showRequest, setShowRequest] = useState(false);
@@ -33,6 +36,15 @@ export function AllGroups() {
     );
   }
 
+  function handlePreferences(university, subject, grade, time) {
+    setPreferences({
+      university: university,
+      subject: subject,
+      grade: grade,
+      time: time,
+    });
+  }
+
   function handleClick(group) {
     setSelectedGroup(group);
     setShowModal(true);
@@ -53,13 +65,18 @@ export function AllGroups() {
       <Typography element={"h2"} weight={"bold"}>
         Groups
       </Typography>
-      <SearchBar onChange={setInput} onClick={() => console.log("TODO")} />
+      <SearchBar onChange={setInput} onClick={() => setShowFilter(true)} />
       <div className="relative grid grid-cols-2 gap-5">
         {groups.map(
           (group) =>
             group.name.includes(input) && (
               <GroupCard key={group.name} group={group} onClick={handleClick} />
             )
+        )}
+        {showFilter && (
+          <Modal onClose={() => setShowFilter(false)}>
+            <Filter onSubmit={handlePreferences} />
+          </Modal>
         )}
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
