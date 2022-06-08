@@ -68,7 +68,7 @@ export const navList = [
     dashboard: false,
     navbar: false,
     frontpage: { text: "Add group" },
-    canBack: false,
+    canBack: { path: "/" },
   },
   {
     path: "/chat",
