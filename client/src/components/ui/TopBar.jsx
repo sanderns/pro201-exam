@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { navList } from "../../navigation-config";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import { Logo } from "./Logo";
 
 export function TopBar() {
   const [canBack, setCanBack] = useState(false);
@@ -36,10 +37,11 @@ export function TopBar() {
       >
         <ArrowBackIosNewIcon />
       </button>
-      <div>LOGO</div>
-      {/* BUTTON IS HIDDEN SINCE ITS NOT FULLY DEVELOPED */}
-      <button className="invisible">
-        <MenuIcon />
+      <>
+        <Logo />
+      </>
+      <button onClick={() => navigate("/groups/add")}>
+        <GroupAddIcon />
       </button>
     </div>
   );

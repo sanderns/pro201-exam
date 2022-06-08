@@ -66,8 +66,8 @@ export function Filter({ onSubmit }) {
   return (
     <div className="flex flex-col gap-5">
       {filterFields.map(
-        ({ id, title, values, state, setState, value, setValue }) => (
-          <div className="flex w-64">
+        ({ id, title, values, state, setState, value, setValue }, index) => (
+          <div key={index} className="flex w-64">
             <div className="flex grow flex-col gap-2.5">
               <Typography element={"p1"} weight="regular">
                 {title}
@@ -99,8 +99,11 @@ export function Filter({ onSubmit }) {
                   </div>
                 </button>
                 {state === id &&
-                  values.map((value) => (
-                    <div className="flex flex-col last:rounded-b-2xl text-gray-400 py-1 px-3 border-b last:border-b-0">
+                  values.map((value, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col last:rounded-b-2xl text-gray-400 py-1 px-3 border-b last:border-b-0"
+                    >
                       <button
                         onClick={() => handleClick(setValue, value)}
                         className="flex justify-start text-black"
