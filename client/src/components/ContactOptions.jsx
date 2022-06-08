@@ -6,9 +6,7 @@ export function ContactOptions({ deleteConversation, onClose }) {
   const navigate = useNavigate();
 
   return (
-    <div
-      className={`bg-white rounded-2xl drop-shadow p-5 grid gap-2.5 relative`}
-    >
+    <>
       <Button type={"flat"} onClick={() => navigate("/chat/live")}>
         Open chat
       </Button>
@@ -18,6 +16,6 @@ export function ContactOptions({ deleteConversation, onClose }) {
       <Button type={"flat"} onClick={onClose}>
         Close
       </Button>
-    </div>
+    </>
   );
 }
