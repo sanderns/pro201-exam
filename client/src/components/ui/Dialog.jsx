@@ -3,6 +3,8 @@ import { Typography } from "./Typography";
 import { Button } from "./Button";
 
 export function Dialog({ onCancel, onSend, children }) {
+  // TODO: Handle if nothing is written, then should the user be allowed to press Send?
+
   return (
     <div className={"flex flex-col gap-5"}>
       <Typography element={"p1"} weight={"bold"}>

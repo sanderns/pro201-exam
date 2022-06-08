@@ -48,7 +48,7 @@ export function MatchingStudents() {
 
   function filterStudents() {}
 
-  const filteredStudents = filterStudents();
+  const filteredStudents = filterStudents(); // TODO: Filter student list
 
   function handleClick(student) {
     setSelectedStudent(student);

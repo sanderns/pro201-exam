@@ -64,6 +64,7 @@ export function Chat() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ContactOptions onClose={() => setShowModal(false)} />
+          {/* TODO: Delete conversations functionality etc. */}
         </Modal>
       )}
     </div>

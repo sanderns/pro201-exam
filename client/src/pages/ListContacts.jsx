@@ -63,6 +63,7 @@ export function ListContacts() {
       {contacts.requests !== [] ? (
         <CategoryHeader name={"Requests"} canHide={true}>
           {contacts.requests.map((contact, index) => (
+              <!-- TODO: Make requests interactive -->
             <RequestCard key={index} contact={contact} />
           ))}
         </CategoryHeader>
@@ -99,6 +100,7 @@ export function ListContacts() {
         <div className="z-50">
           <Modal onClose={() => setShowModal(false)}>
             <ContactOptions onClose={() => setShowModal(false)} />
+            {/* TODO: Delete conversations functionality etc. */}
           </Modal>
         </div>
       )}
