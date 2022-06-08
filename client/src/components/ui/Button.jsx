@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "./Typography";
 
-export function Button({ theme, type, onClick, children }) {
+export function Button({ theme, type, onClick, children, disabled }) {
   // Handles no provided theme
   if (theme !== "gradient" && theme !== "flat") {
     console.log('Theme is not defined! Value set to "flat".');
