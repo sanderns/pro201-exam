@@ -3,6 +3,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useNavigate } from "react-router-dom";
 import { navList } from "../../navigation-config";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import { Logo } from "./Logo";
 
 export function TopBar() {
   const [canBack, setCanBack] = useState(false);
@@ -36,7 +37,9 @@ export function TopBar() {
       >
         <ArrowBackIosNewIcon />
       </button>
-      <div>LOGO</div>
+      <>
+        <Logo />
+      </>
       <button onClick={() => navigate("/groups/add")}>
         <GroupAddIcon />
       </button>
