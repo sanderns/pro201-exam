@@ -9,27 +9,31 @@ export function StudentCard({ student, onClick }) {
 
   return (
     <Card>
-      <div
-        className={`bg-gradient-to-r from-gradient-left to-gradient-right rounded-xl h-24 flex justify-center items-center text-white`}
-      >
-        <PersonOutlineOutlinedIcon fontSize="large" />
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-col gap-2.5 pb-2.5">
+          <div
+            className={`bg-gradient-to-r from-gradient-left to-gradient-right rounded-xl h-24 flex justify-center items-center text-white`}
+          >
+            <PersonOutlineOutlinedIcon fontSize="large" />
+          </div>
+          <Typography element={"p2"} weight={"bold"}>
+            {name}
+          </Typography>
+          <Typography element={"p2"} weight={"bold"}>
+            About me
+          </Typography>
+          <Typography element={"p2"} weight={"regular"}>
+            {aboutMe}
+          </Typography>
+        </div>
+        <Button
+          theme={"gradient"}
+          type={"normal"}
+          onClick={() => onClick(student)}
+        >
+          View more
+        </Button>
       </div>
-      <Typography element={"p2"} weight={"bold"}>
-        {name}
-      </Typography>
-      <Typography element={"p2"} weight={"bold"}>
-        About me
-      </Typography>
-      <Typography element={"p2"} weight={"regular"}>
-        {aboutMe}
-      </Typography>
-      <Button
-        theme={"gradient"}
-        type={"normal"}
-        onClick={() => onClick(student)}
-      >
-        View more
-      </Button>
     </Card>
   );
 }

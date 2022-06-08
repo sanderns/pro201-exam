@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Typography({ element, weight, children }) {
+export function Typography({ element, weight, clamp, children }) {
   // Handles no provided element
   if (
     element !== "h1" &&
@@ -64,6 +64,20 @@ export function Typography({ element, weight, children }) {
 
   const weightStyle = getWeightStyle();
 
+  // Handles no provided clamp
+  if (clamp === undefined || clamp === null) {
+    clamp = 0;
+  }
+
+  // Handles provided clamp
+  function getLineClamp() {
+    if (clamp !== 0) {
+      return `w-full line-clamp-${clamp}`;
+    }
+  }
+
+  const lineClamp = getLineClamp();
+
   // Handles empty children
   if (children == null || children === "") {
     console.log('Children not defined! Value set to "undefined".');
@@ -73,12 +87,28 @@ export function Typography({ element, weight, children }) {
   // Returns desired type of typography
   switch (element) {
     case "h1":
-      return <h1 className={`${elementStyle} ${weightStyle}`}>{children}</h1>;
+      return (
+        <h1 className={`${elementStyle} ${weightStyle} ${lineClamp}`}>
+          {children}
+        </h1>
+      );
     case "h2":
-      return <h2 className={`${elementStyle} ${weightStyle}`}>{children}</h2>;
+      return (
+        <h2 className={`${elementStyle} ${weightStyle} ${lineClamp}`}>
+          {children}
+        </h2>
+      );
     case "h3":
-      return <h3 className={`${elementStyle} ${weightStyle}`}>{children}</h3>;
+      return (
+        <h3 className={`${elementStyle} ${weightStyle} ${lineClamp}`}>
+          {children}
+        </h3>
+      );
     default:
-      return <p className={`${elementStyle} ${weightStyle}`}>{children}</p>;
+      return (
+        <p className={`${elementStyle} ${weightStyle} ${lineClamp}`}>
+          {children}
+        </p>
+      );
   }
 }

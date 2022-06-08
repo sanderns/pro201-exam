@@ -17,30 +17,40 @@ export function GroupCard({ group, onClick }) {
 
   return (
     <Card>
-      <Typography element={"p2"} weight={"bold"}>
-        {name}
-      </Typography>
-      <Typography element={"p2"} weight={"bold"}>
-        About Us
-      </Typography>
-      <Typography element={"p2"} weight={"regular"}>
-        {aboutUs}
-      </Typography>
-      <div className="relative h-12">
-        {/* Should be functionality to map users in group to show the most recently active users */}
-        <div className="absolute left-16">
-          <GroupMemberCircle />
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-col gap-2.5 pb-2.5">
+          <Typography element={"p2"} weight={"bold"}>
+            {name}
+          </Typography>
+          <Typography element={"p2"} weight={"bold"}>
+            About Us
+          </Typography>
+          <Typography element={"p2"} weight={"regular"} clamp={"3"}>
+            {aboutUs}
+          </Typography>
         </div>
-        <div className="absolute left-8">
-          <GroupMemberCircle />
-        </div>
-        <div className="absolute left-0">
-          <GroupMemberCircle />
+        <div>
+          <div className="relative h-12">
+            {/* Should be functionality to map users in group to show the most recently active users */}
+            <div className="absolute left-16">
+              <GroupMemberCircle />
+            </div>
+            <div className="absolute left-8">
+              <GroupMemberCircle />
+            </div>
+            <div className="absolute left-0">
+              <GroupMemberCircle />
+            </div>
+          </div>
+          <Button
+            theme={"gradient"}
+            type={"normal"}
+            onClick={() => onClick(group)}
+          >
+            View more
+          </Button>
         </div>
       </div>
-      <Button theme={"gradient"} type={"normal"} onClick={() => onClick(group)}>
-        View more
-      </Button>
     </Card>
   );
 }
