@@ -38,6 +38,7 @@ export function MatchingStudents() {
   }
 
   function handlePreferences(university, subject, grade, time) {
+    setShowFilter(false);
     setPreferences({
       university: university,
       subject: subject,
@@ -45,10 +46,6 @@ export function MatchingStudents() {
       time: time,
     });
   }
-
-  function filterStudents() {}
-
-  const filteredStudents = filterStudents(); // TODO: Filter student list
 
   function handleClick(student) {
     setSelectedStudent(student);
