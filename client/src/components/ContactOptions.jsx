@@ -6,7 +6,7 @@ export function ContactOptions({ deleteConversation, onClose }) {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="w-48 flex flex-col gap-2.5">
       <Button type={"flat"} onClick={() => navigate("/chat/live")}>
         Open chat
       </Button>
@@ -16,6 +16,6 @@ export function ContactOptions({ deleteConversation, onClose }) {
       <Button type={"flat"} onClick={onClose}>
         Close
       </Button>
-    </>
+    </div>
   );
 }
