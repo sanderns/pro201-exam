@@ -1,22 +1,13 @@
 import React from "react";
 import { Typography } from "./ui/Typography";
 import { Button } from "./ui/Button";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-export function DetailedStudentCard({
-  student,
-  onClose,
-  onRequest,
-  onMessage,
-}) {
-  const { image, name, study, subject, gradeGoal, studyTime, aboutMe } =
-    student;
+export function GroupDetailed({ group, onClose, onRequest }) {
+  const { name, study, subject, gradeGoal, studyTime, aboutUs } = group;
 
   return (
-    <div
-      className={`m-5 bg-white rounded-2xl drop-shadow p-5 grid gap-2.5 relative`}
-    >
+    <>
       <button
         onClick={onClose}
         className={
@@ -25,13 +16,6 @@ export function DetailedStudentCard({
       >
         <CloseOutlinedIcon />
       </button>
-      <div
-        className={
-          "absolute top-5 right-5 w-24 h-24 bg-gradient-to-r from-gradient-left to-gradient-right rounded-xl flex justify-center items-center text-white"
-        }
-      >
-        <PersonOutlineOutlinedIcon fontSize="large" />
-      </div>
       <div className="w-72" />
       <Typography element={"p2"} weight={"bold"}>
         {name}
@@ -59,25 +43,16 @@ export function DetailedStudentCard({
         </li>
       </ul>
       <Typography element={"p2"} weight={"bold"}>
-        About me
+        About us
       </Typography>
       <Typography element={"p2"} weight={"regular"}>
-        {aboutMe}
+        {aboutUs}
       </Typography>
-      <div className={"flex justify-evenly pt-5"}>
-        <Button
-          type={"gradient"}
-          onClick={onRequest}
-        >
+      <div className={"flex justify-end"}>
+        <Button theme={"gradient"} type={"normal"} onClick={onRequest}>
           Send request
         </Button>
-        <Button
-          type={"gradient"}
-          onClick={onMessage}
-        >
-          Send message
-        </Button>
       </div>
-    </div>
+    </>
   );
 }

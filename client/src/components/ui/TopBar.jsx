@@ -2,23 +2,28 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import { navList } from "../../navigation-config";
 
 export function TopBar() {
   const [canBack, setCanBack] = useState(false);
+  const [backsTo, setBacksTo] = useState(undefined);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (window.location.pathname !== "/") {
-      setCanBack(true);
-    }
-  }, []);
+    navList.map((item) => {
+      if (item.path === window.location.pathname) {
+        if (item.canBack !== false) {
+          setCanBack(true);
+          setBacksTo(item.canBack.path);
+        } else {
+          setCanBack(false);
+        }
+      }
+    });
+  }, [window.location.pathname]);
 
   function handleBackClick() {
-    navigate(-1); // TODO: Make it so this button works everywhere
-  }
-
-  function handleMenuClick() {
-    console.log("TODO: Fix this button to show sidebar"); // TODO: Fix this button to show sidebar
+    navigate(backsTo);
   }
 
   return (
@@ -32,7 +37,8 @@ export function TopBar() {
         <ArrowBackIosNewIcon />
       </button>
       <div>LOGO</div>
-      <button onClick={handleMenuClick}>
+      {/* BUTTON IS HIDDEN SINCE ITS NOT FULLY DEVELOPED */}
+      <button className="invisible">
         <MenuIcon />
       </button>
     </div>

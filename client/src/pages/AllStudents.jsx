@@ -2,17 +2,21 @@ import { fetchJSON } from "../api/fetchJSON";
 import { StudentCard } from "../components/StudentCard";
 import { useLoading } from "../hooks/useLoading";
 import React, { useState } from "react";
-import { DetailedStudentCard } from "../components/DetailedStudentCard";
-import { Modal } from "../components/Modal";
-import { VerifyBox } from "../components/VerifyBox";
-import { MessageBox } from "../components/MessageBox";
-import { ConfirmationBox } from "../components/ConfirmationBox";
+import { StudentDetailed } from "../components/StudentDetailed";
+import { Modal } from "../components/wrappers/Modal";
+import { Dialog } from "../components/ui/Dialog";
+import { Alert } from "../components/ui/Alert";
+import { Typography } from "../components/ui/Typography";
+import { SearchBar } from "../components/ui/SearchBar";
+import { Filter } from "../components/Filter";
 
 export function AllStudents() {
+  const [input, setInput] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [preferences, setPreferences] = useState({});
   const [selectedStudent, setSelectedStudent] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
   const [showRequest, setShowRequest] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
   const [showVerify, setShowVerify] = useState(false);
   const {
     loading,
@@ -33,6 +37,15 @@ export function AllStudents() {
     );
   }
 
+  function handlePreferences(university, subject, grade, time) {
+    setPreferences({
+      university: university,
+      subject: subject,
+      grade: grade,
+      time: time,
+    });
+  }
+
   function handleClick(student) {
     setSelectedStudent(student);
     setShowModal(true);
@@ -45,51 +58,56 @@ export function AllStudents() {
   function handleCloseAll() {
     setShowModal(false);
     setShowRequest(false);
-    setShowMessage(false);
     setShowVerify(false);
   }
 
   return (
-    <div className="relative grid grid-cols-2 p-5 gap-5">
-      {students.map((student, index) => (
-        <StudentCard key={index} student={student} onClick={handleClick} />
-      ))}
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <DetailedStudentCard
-            student={selectedStudent}
-            onClose={() => setShowModal(false)}
-            onRequest={() => setShowRequest(true)} // TODO: Make this button work
-            onMessage={() => setShowMessage(true)} // TODO: Make this button work
-          />
-        </Modal>
-      )}
-      {showRequest && (
-        <Modal onClose={() => setShowRequest(false)}>
-          <VerifyBox
-            onClose={() => setShowRequest(false)}
-            displayText={"Do you wish to proceed"}
-            onYes={requestClick}
-          />
-        </Modal>
-      )}
-      {showMessage && (
-        <Modal onClose={() => setShowMessage(false)}>
-          <MessageBox
-            onClose={() => setShowMessage(false)}
-            displayText={"Send"}
-            onSend={requestClick}
-          />
-        </Modal>
-      )}
-      {showVerify && (
-        <Modal onClose={() => setShowVerify(false)}>
-          <ConfirmationBox
-            onCloseAll={handleCloseAll}
-            displayText={"Your request has been sent"}
-          />
-        </Modal>
-      )}
+    <div className="flex flex-col p-5 gap-5">
+      <Typography element={"h2"} weight={"bold"}>
+        Students
+      </Typography>
+      <SearchBar onChange={setInput} onClick={() => setShowFilter(true)} />
+      <div className="relative grid grid-cols-2 gap-5">
+        {students.map(
+          (student, index) =>
+            student.name.includes(input) && (
+              <StudentCard
+                key={index}
+                student={student}
+                onClick={handleClick}
+              />
+            )
+        )}
+        {showFilter && (
+          <Modal onClose={() => setShowFilter(false)}>
+            <Filter onSubmit={handlePreferences} />
+          </Modal>
+        )}
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <StudentDetailed
+              student={selectedStudent}
+              onClose={() => setShowModal(false)}
+              onRequest={() => setShowRequest(true)}
+            />
+          </Modal>
+        )}
+        {showRequest && (
+          <Modal onClose={() => setShowRequest(false)}>
+            <Dialog
+              onCancel={() => setShowRequest(false)}
+              onSend={requestClick}
+            >
+              Make a good first impression!
+            </Dialog>
+          </Modal>
+        )}
+        {showVerify && (
+          <Modal onClose={() => setShowVerify(false)}>
+            <Alert onOk={handleCloseAll}>Your request has been sent!</Alert>
+          </Modal>
+        )}
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { ListContacts } from "./pages/ListContacts";
 import PersonSearchOutlinedIcon from "@mui/icons-material/PersonSearchOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import { ChatLive } from "./pages/ChatLive";
 
 export const navList = [
   {
@@ -19,8 +20,10 @@ export const navList = [
     navbar: {
       icon: <PersonSearchOutlinedIcon fontSize="large" />,
       text: "Search",
+      id: 0,
     },
     frontpage: false,
+    canBack: false,
   },
   {
     path: "/students/recommended",
@@ -29,6 +32,7 @@ export const navList = [
     dashboard: { text: "List matching students" },
     navbar: false,
     frontpage: { text: "List all matching students" },
+    canBack: { path: "/" },
   },
   {
     path: "/students/all",
@@ -37,6 +41,16 @@ export const navList = [
     dashboard: { text: "List students wanting groups" },
     navbar: false,
     frontpage: { text: "List all students" },
+    canBack: { path: "/" },
+  },
+  {
+    path: "/students/add",
+    element: <CreateUser />,
+    mobileElement: false,
+    dashboard: false,
+    navbar: false,
+    frontpage: { text: "Add student" },
+    canBack: false,
   },
   {
     path: "/groups/all",
@@ -45,6 +59,16 @@ export const navList = [
     dashboard: { text: "List groups wanting students" },
     navbar: false,
     frontpage: { text: "List all groups" },
+    canBack: { path: "/" },
+  },
+  {
+    path: "/groups/add",
+    element: <CreateGroup />,
+    mobileElement: false,
+    dashboard: false,
+    navbar: false,
+    frontpage: { text: "Add group" },
+    canBack: false,
   },
   {
     path: "/chat",
@@ -54,34 +78,31 @@ export const navList = [
     navbar: {
       icon: <ChatBubbleOutlineOutlinedIcon fontSize="large" />,
       text: "Chat",
+      id: 1,
     },
     frontpage: { text: "Chat" },
+    canBack: false,
   },
   {
-    path: "/students/add",
-    element: <CreateUser />,
+    path: "/chat/live",
+    element: <ChatLive />,
     mobileElement: false,
     dashboard: false,
     navbar: false,
-    frontpage: { text: "Add student" },
+    frontpage: false,
+    canBack: { path: "chat" },
   },
   {
-    path: "/groups/add",
-    element: <CreateGroup />,
-    mobileElement: false,
-    dashboard: false,
-    navbar: false,
-    frontpage: { text: "Add group" },
-  },
-  {
-    path: "/students",
+    path: "/contacts",
     element: <ListContacts />,
     mobileElement: false,
     dashboard: false,
     navbar: {
       icon: <PeopleAltOutlinedIcon fontSize="large" />,
       text: "Contacts",
+      id: 2,
     },
     frontpage: false,
+    canBack: false,
   },
 ];

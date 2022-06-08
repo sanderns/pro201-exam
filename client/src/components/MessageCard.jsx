@@ -3,20 +3,20 @@ import { Typography } from "./ui/Typography";
 import { OnlineStatus } from "./OnlineStatus";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export function MessageCard({ user, status, message, timestamp }) {
+export function MessageCard({ user, status, message, timestamp, onClick }) {
   const { indicator, text } = status;
+  const navigate = useNavigate();
 
   function handleClick() {
-    console.log("TODO: Make this button navigate user to live chat page"); // TODO: Make this button navigate user to live chat page
+    navigate("/chat/live");
   }
 
   function toggleOptions(event) {
     event.stopPropagation();
-    console.log("TODO: Make this button open more options"); // TODO: Make this button open more options
+    onClick(user);
   }
-
-  // cursor-pointer
 
   return (
     <div

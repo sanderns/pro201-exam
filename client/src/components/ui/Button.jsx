@@ -1,16 +1,16 @@
 import React from "react";
 import { Typography } from "./Typography";
 
-export function Button({ type, children, onClick }) {
+export function Button({ theme, type, onClick, children }) {
   // Handles no provided theme
-  if (type !== "gradient" && type !== "flat") {
+  if (theme !== "gradient" && theme !== "flat") {
     console.log('Theme is not defined! Value set to "flat".');
-    type = "flat";
+    theme = "flat";
   }
 
   // Handles provided theme
   function getBgColor() {
-    switch (type) {
+    switch (theme) {
       case "gradient":
         return "bg-gradient-to-r from-gradient-left to-gradient-right hover:shadow-md hover:shadow-purple-200/50 active:to-purple-100/70";
       case "flat":
@@ -20,11 +20,23 @@ export function Button({ type, children, onClick }) {
 
   const bgColor = getBgColor();
 
-  // Handles empty children
-  if (children == null || children === "") {
-    console.log('Children not defined! Value set to "undefined".');
-    children = "undefined";
+  // Handles no provided type
+  if (type !== "hyperlink" && type !== "normal") {
+    console.log('Type is not defined! Value set to "normal".');
+    type = "normal";
   }
+
+  // Handles provided type
+  function getBtnStyle() {
+    switch (type) {
+      case "hyperlink":
+        return "b1";
+      case "normal":
+        return "b2";
+    }
+  }
+
+  const btnStyle = getBtnStyle();
 
   // Handles onClickFn
   function handleClick(event) {
@@ -38,13 +50,19 @@ export function Button({ type, children, onClick }) {
     }
   }
 
+  // Handles empty children
+  if (children == null || children === "") {
+    console.log('Children not defined! Value set to "undefined".');
+    children = "undefined";
+  }
+
   // Returns button
   return (
     <button
       onClick={handleClick}
       className={`px-4 p-2 text-md font-bold text-center rounded-standard text-white ${bgColor}`}
     >
-      <Typography element={"b2"} weight={"bold"}>
+      <Typography element={btnStyle} weight={"bold"}>
         {children}
       </Typography>
     </button>
