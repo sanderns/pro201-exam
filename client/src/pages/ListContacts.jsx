@@ -43,8 +43,7 @@ export function ListContacts() {
     students: [],
   };
 
-  // TODO: Rename function to a more understandable name?
-  function pickOne(contact, list) {
+  function pickRandomizedUser(contact, list) {
     const random = Math.floor(Math.random() * 2);
     if (random === 0) {
       contacts.requests.push(contact.name);
@@ -54,10 +53,10 @@ export function ListContacts() {
   }
 
   students.forEach((student) => {
-    pickOne(student, contacts.students);
+    pickRandomizedUser(student, contacts.students);
   });
   groups.forEach((group) => {
-    pickOne(group, contacts.groups);
+    pickRandomizedUser(group, contacts.groups);
   });
 
   function handleCloseAll() {
