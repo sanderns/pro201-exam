@@ -6,10 +6,12 @@ import { ContactCard } from "../components/ContactCard";
 import React, { useState } from "react";
 import { Modal } from "../components/wrappers/Modal";
 import { ContactOptions } from "../components/ContactOptions";
+import {Alert} from "../components/ui/Alert";
 
 export function ListContacts() {
   const [showModal, setShowModal] = useState(false);
-  const categories = ["Requests", "Groups", "Students"];
+  const [showAccept, setShowAccept] = useState(false);
+  const [showDeny, setShowDeny] = useState(false);
 
   const {
     loading: l1,
@@ -41,7 +43,7 @@ export function ListContacts() {
     students: [],
   };
 
-  function listOut(contact, list) {
+  function pickRandomizedUser(contact, list) {
     const random = Math.floor(Math.random() * 2);
     if (random === 0) {
       contacts.requests.push(contact.name);
@@ -51,11 +53,17 @@ export function ListContacts() {
   }
 
   students.forEach((student) => {
-    listOut(student, contacts.students);
+    pickRandomizedUser(student, contacts.students);
   });
   groups.forEach((group) => {
-    listOut(group, contacts.groups);
+    pickRandomizedUser(group, contacts.groups);
   });
+
+  function handleCloseAll() {
+    setShowModal(false);
+    setShowAccept(false);
+    setShowDeny(false)
+  }
 
   return (
     <div className="p-5 flex flex-col gap-5">
@@ -63,7 +71,12 @@ export function ListContacts() {
         <CategoryHeader name={"Requests"} canHide={true}>
           {contacts.requests.map((contact, index) => (
               <!-- TODO: Make requests interactive -->
-            <RequestCard key={index} contact={contact} />
+            <RequestCard
+                key={index}
+                contact={contact}
+                onAccept={() => setShowAccept(true)}
+                onDeny={() => setShowDeny(true)}
+            />
           ))}
         </CategoryHeader>
       ) : (
@@ -103,6 +116,16 @@ export function ListContacts() {
           </Modal>
         </div>
       )}
+      {showAccept && (
+            <Modal onClose={() => setShowAccept(false)}>
+              <Alert onOk={handleCloseAll}>Request has been accepted!</Alert>
+            </Modal>
+        )}
+      {showDeny && (
+            <Modal onClose={() => setShowDeny(false)}>
+              <Alert onOk={handleCloseAll}>Request has been denied!</Alert>
+            </Modal>
+        )}
     </div>
   );
 }

@@ -28,9 +28,7 @@ export function TopBar() {
   }
 
   return (
-    <div
-      className={`flex justify-between items-center p-5 pt-10 bg-gradient-to-r from-gradient-left to-gradient-right text-white`}
-    >
+    <div className={`flex justify-between items-center p-5 pt-10 text-white`}>
       <button
         onClick={handleBackClick}
         className={!canBack ? "invisible" : undefined}
